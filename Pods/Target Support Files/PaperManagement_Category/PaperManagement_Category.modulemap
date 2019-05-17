@@ -1,0 +1,6 @@
+framework module PaperManagement_Category {
+  umbrella header "PaperManagement_Category-umbrella.h"
+
+  export *
+  module * { export * }
+}

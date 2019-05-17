@@ -1,0 +1,6 @@
+framework module ZMSafe {
+  umbrella header "ZMSafe-umbrella.h"
+
+  export *
+  module * { export * }
+}

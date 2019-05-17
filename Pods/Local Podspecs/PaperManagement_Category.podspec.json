@@ -1,0 +1,27 @@
+{
+  "name": "PaperManagement_Category",
+  "version": "0.1.0",
+  "summary": "论文管理业务",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://192.168.3.200/iOS_Pods/PaperManagement_Category",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zmXie": "741937337@qq.com"
+  },
+  "source": {
+    "git": "http://192.168.3.200/iOS_Pods/PaperManagement_Category.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PaperManagement_Category/Classes/**/*",
+  "dependencies": {
+    "CTMediator": [
+
+    ]
+  }
+}

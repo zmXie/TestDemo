@@ -1,0 +1,22 @@
+{
+  "name": "ZMSafe",
+  "version": "0.1.0",
+  "summary": "crash安全防护",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://192.168.3.200/iOS_Pods/ZMSafe",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zmXie": "741937337@qq.com"
+  },
+  "source": {
+    "git": "http://192.168.3.200/iOS_Pods/ZMSafe.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ZMSafe/Classes/**/*"
+}

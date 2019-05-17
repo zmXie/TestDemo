@@ -1,0 +1,1793 @@
+Found 222 issues
+
+Pods/Masonry/Masonry/View+MASAdditions.m:17: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 17, column 5.
+  15.       self.translatesAutoresizingMaskIntoConstraints = NO;
+  16.       MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];
+  17. >     block(constraintMaker);
+  18.       return [constraintMaker install];
+  19.   }
+
+Pods/Masonry/Masonry/View+MASAdditions.m:25: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 25, column 5.
+  23.       MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];
+  24.       constraintMaker.updateExisting = YES;
+  25. >     block(constraintMaker);
+  26.       return [constraintMaker install];
+  27.   }
+
+Pods/ReactiveCocoa/ReactiveCocoa/NSObject+RACKVOWrapper.m:51: error: DEAD_STORE
+  The value written to &rac_exitBlock_51 (type _fn_(*)) is never used.
+  49.   		rac_propertyAttributes *attributes = rac_copyPropertyAttributes(property);
+  50.   		if (attributes != NULL) {
+  51. > 			@onExit {
+  52.   				free(attributes);
+  53.   			};
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACEagerSequence.m:29: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `bindBlock` is not checked for null, there could be a null pointer dereference: pointer `bindBlock` last assigned on line 23 could be null and is dereferenced at line 29, column 33.
+  27.   	for (id value in currentArray) {
+  28.   		BOOL stop = NO;
+  29. > 		RACSequence *boundValue = (id)bindBlock(value, &stop);
+  30.   		if (boundValue == nil) break;
+  31.   
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:46: error: NULL_DEREFERENCE
+  pointer `pPk` last assigned on line 43 could be null and is dereferenced at line 46, column 40.
+  44.       assert( pPk!=0 );
+  45.       assert( pPk->tnum==pTab->tnum );
+  46. >     sqlite3VdbeAddOp3(v, opcode, iCur, pPk->tnum, iDb);
+  47.       sqlite3VdbeSetP4KeyInfo(pParse, pPk);
+  48.       VdbeComment((v, "%s", pTab->zName));
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:46: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 35 could be null and is dereferenced by call to `sqlite3VdbeAddOp3()` at line 46, column 5.
+  44.       assert( pPk!=0 );
+  45.       assert( pPk->tnum==pTab->tnum );
+  46. >     sqlite3VdbeAddOp3(v, opcode, iCur, pPk->tnum, iDb);
+  47.       sqlite3VdbeSetP4KeyInfo(pParse, pPk);
+  48.       VdbeComment((v, "%s", pTab->zName));
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:40: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 35 could be null and is dereferenced by call to `sqlite3VdbeAddOp4Int()` at line 40, column 5.
+  38.                      (opcode==OP_OpenWrite)?1:0, pTab->zName);
+  39.     if( HasRowid(pTab) ){
+  40. >     sqlite3VdbeAddOp4Int(v, opcode, iCur, pTab->tnum, iDb, pTab->nCol);
+  41.       VdbeComment((v, "%s", pTab->zName));
+  42.     }else{
+
+Pods/ReactiveCocoa/ReactiveCocoa/UIRefreshControl+RACCommandSupport.m:54: error: NULL_DEREFERENCE
+  pointer `executionDisposable` last assigned on line 39 could be null and is dereferenced at line 54, column 94.
+  52.   		}];
+  53.   
+  54. > 	RACDisposable *commandDisposable = [RACCompoundDisposable compoundDisposableWithDisposables:@[ enabledDisposable, executionDisposable ]];
+  55.   	objc_setAssociatedObject(self, UIRefreshControlDisposableKey, commandDisposable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+  56.   }
+
+Pods/WCDB/objc/WCDB/interface/builtin/WCTMaster.mm:28: error: STATIC_INITIALIZATION_ORDER_FIASCO
+  Initializer of _unused0 accesses global variable from a different translation unit: WCDB::Error::s_slient|Pods/WCDB/objc/WCDB/util/error.cpp.
+  26.   
+  27.   WCDB_IMPLEMENTATION(WCTMaster)
+  28. > WCDB_SYNTHESIZE(WCTMaster, type)
+  29.   WCDB_SYNTHESIZE(WCTMaster, name)
+  30.   WCDB_SYNTHESIZE_COLUMN(WCTMaster, tableName, "tbl_name")
+
+Pods/WCDB/objc/WCDB/interface/builtin/WCTSequence.mm:28: error: STATIC_INITIALIZATION_ORDER_FIASCO
+  Initializer of _unused0 accesses global variable from a different translation unit: WCDB::Error::s_slient|Pods/WCDB/objc/WCDB/util/error.cpp.
+  26.   
+  27.   WCDB_IMPLEMENTATION(WCTSequence)
+  28. > WCDB_SYNTHESIZE(WCTSequence, name)
+  29.   WCDB_SYNTHESIZE(WCTSequence, seq)
+  30.   
+
+Pods/Masonry/Masonry/View+MASAdditions.m:33: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 33, column 5.
+  31.       MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];
+  32.       constraintMaker.removeExisting = YES;
+  33. >     block(constraintMaker);
+  34.       return [constraintMaker install];
+  35.   }
+
+Pods/WCDB/objc/WCDB/interface/builtin/WCTMaster.mm:29: error: STATIC_INITIALIZATION_ORDER_FIASCO
+  Initializer of _unused1 accesses global variable from a different translation unit: WCDB::Error::s_slient|Pods/WCDB/objc/WCDB/util/error.cpp.
+  27.   WCDB_IMPLEMENTATION(WCTMaster)
+  28.   WCDB_SYNTHESIZE(WCTMaster, type)
+  29. > WCDB_SYNTHESIZE(WCTMaster, name)
+  30.   WCDB_SYNTHESIZE_COLUMN(WCTMaster, tableName, "tbl_name")
+  31.   WCDB_SYNTHESIZE(WCTMaster, rootpage)
+
+Pods/WCDB/objc/WCDB/interface/builtin/WCTMaster.mm:30: error: STATIC_INITIALIZATION_ORDER_FIASCO
+  Initializer of _unused2 accesses global variable from a different translation unit: WCDB::Error::s_slient|Pods/WCDB/objc/WCDB/util/error.cpp.
+  28.   WCDB_SYNTHESIZE(WCTMaster, type)
+  29.   WCDB_SYNTHESIZE(WCTMaster, name)
+  30. > WCDB_SYNTHESIZE_COLUMN(WCTMaster, tableName, "tbl_name")
+  31.   WCDB_SYNTHESIZE(WCTMaster, rootpage)
+  32.   WCDB_SYNTHESIZE(WCTMaster, sql)
+
+Pods/WCDB/objc/WCDB/interface/statictics/WCTStatistics.mm:31: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `report` is not checked for null, there could be a null pointer dereference: pointer `report` last accessed on line 31 could be null and is dereferenced at line 31, column 13.
+  29.       if (report) {
+  30.           WCDB::Error::SetReportMethod([report](const WCDB::Error &error) {
+  31. >             report([WCTError errorWithWCDBError:error]);
+  32.           });
+  33.       } else {
+
+Pods/WCDB/objc/WCDB/abstract/statement_select.cpp:32: error: STATIC_INITIALIZATION_ORDER_FIASCO
+  Initializer of WCDB::StatementSelect::Fts3Tokenizer accesses global variable from a different translation unit: WCDB::Expr::BindParameter|.
+  30.   namespace WCDB {
+  31.   
+  32. > StatementSelect StatementSelect::Fts3Tokenizer = StatementSelect().select(
+  33.       {Expr::Function("fts3_tokenizer", ExprList(2, WCDB::Expr::BindParameter))});
+  34.   
+
+Pods/WCDB/objc/WCDB/interface/builtin/WCTMaster.mm:32: error: STATIC_INITIALIZATION_ORDER_FIASCO
+  Initializer of _unused4 accesses global variable from a different translation unit: WCDB::Error::s_slient|Pods/WCDB/objc/WCDB/util/error.cpp.
+  30.   WCDB_SYNTHESIZE_COLUMN(WCTMaster, tableName, "tbl_name")
+  31.   WCDB_SYNTHESIZE(WCTMaster, rootpage)
+  32. > WCDB_SYNTHESIZE(WCTMaster, sql)
+  33.   
+  34.   + (NSString *)TableName
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:71: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `blobAccessor -> getValue` is not checked for null, there could be a null pointer dereference: pointer `blobAccessor->getValue` last accessed on line 71 could be null and is dereferenced at line 71, column 83.
+  69.                       int size = 0;
+  70.                       WCTCppAccessor<WCTColumnTypeBinary> *blobAccessor = (WCTCppAccessor<WCTColumnTypeBinary> *) accessor.get();
+  71. >                     statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeBinary>(blobAccessor->getValue(object, size),
+  72.                                                                                     size,
+  73.                                                                                     index);
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:60: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `floatAccessor -> getValue` is not checked for null, there could be a null pointer dereference: pointer `floatAccessor->getValue` last accessed on line 60 could be null and is dereferenced at line 60, column 83.
+  58.                   case WCTColumnTypeDouble: {
+  59.                       WCTCppAccessor<WCTColumnTypeDouble> *floatAccessor = (WCTCppAccessor<WCTColumnTypeDouble> *) accessor.get();
+  60. >                     statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeDouble>(floatAccessor->getValue(object),
+  61.                                                                                     index);
+  62.                   } break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:50: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `i32Accessor -> getValue` is not checked for null, there could be a null pointer dereference: pointer `i32Accessor->getValue` last accessed on line 50 could be null and is dereferenced at line 50, column 86.
+  48.                   case WCTColumnTypeInteger32: {
+  49.                       WCTCppAccessor<WCTColumnTypeInteger32> *i32Accessor = (WCTCppAccessor<WCTColumnTypeInteger32> *) accessor.get();
+  50. >                     statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeInteger32>(i32Accessor->getValue(object),
+  51.                                                                                        index);
+  52.                   } break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:55: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `i64Accessor -> getValue` is not checked for null, there could be a null pointer dereference: pointer `i64Accessor->getValue` last accessed on line 55 could be null and is dereferenced at line 55, column 86.
+  53.                   case WCTColumnTypeInteger64: {
+  54.                       WCTCppAccessor<WCTColumnTypeInteger64> *i64Accessor = (WCTCppAccessor<WCTColumnTypeInteger64> *) accessor.get();
+  55. >                     statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeInteger64>(i64Accessor->getValue(object),
+  56.                                                                                        index);
+  57.                   } break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:100: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `objcAccessor -> getObject` is not checked for null, there could be a null pointer dereference: pointer `objcAccessor->getObject` last accessed on line 100 could be null and is dereferenced at line 100, column 40.
+  98.                   }
+  99.                   case WCTColumnTypeDouble: {
+  100. >                     NSNumber *number = objcAccessor->getObject(object);
+  101.                       statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeDouble>(number.doubleValue, index);
+  102.                       break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:105: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `objcAccessor -> getObject` is not checked for null, there could be a null pointer dereference: pointer `objcAccessor->getObject` last accessed on line 105 could be null and is dereferenced at line 105, column 40.
+  103.                   }
+  104.                   case WCTColumnTypeString: {
+  105. >                     NSString *string = objcAccessor->getObject(object);
+  106.                       statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeString>(string.UTF8String, index);
+  107.                       break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:110: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `objcAccessor -> getObject` is not checked for null, there could be a null pointer dereference: pointer `objcAccessor->getObject` last accessed on line 110 could be null and is dereferenced at line 110, column 36.
+  108.                   }
+  109.                   case WCTColumnTypeBinary: {
+  110. >                     NSData *data = objcAccessor->getObject(object);
+  111.                       statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeBinary>(data.bytes, (int) data.length, index);
+  112.                       break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:90: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `objcAccessor -> getObject` is not checked for null, there could be a null pointer dereference: pointer `objcAccessor->getObject` last accessed on line 90 could be null and is dereferenced at line 90, column 40.
+  88.               switch (accessor->getColumnType()) {
+  89.                   case WCTColumnTypeInteger32: {
+  90. >                     NSNumber *number = objcAccessor->getObject(object);
+  91.                       statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeInteger32>(number.intValue, index);
+  92.                       break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:95: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `objcAccessor -> getObject` is not checked for null, there could be a null pointer dereference: pointer `objcAccessor->getObject` last accessed on line 95 could be null and is dereferenced at line 95, column 40.
+  93.                   }
+  94.                   case WCTColumnTypeInteger64: {
+  95. >                     NSNumber *number = objcAccessor->getObject(object);
+  96.                       statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeInteger64>(number.longLongValue, index);
+  97.                       break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTChainCall.mm:65: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `textAccessor -> getValue` is not checked for null, there could be a null pointer dereference: pointer `textAccessor->getValue` last accessed on line 65 could be null and is dereferenced at line 65, column 83.
+  63.                   case WCTColumnTypeString: {
+  64.                       WCTCppAccessor<WCTColumnTypeString> *textAccessor = (WCTCppAccessor<WCTColumnTypeString> *) accessor.get();
+  65. >                     statementHandle->bind<(WCDB::ColumnType) WCTColumnTypeString>(textAccessor->getValue(object),
+  66.                                                                                     index);
+  67.                   } break;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACDisposable.m:38: error: RETAIN_CYCLE
+  Retain cycle at line 38, column 2 involving the following objects:
+ (1) object of type `RACDisposable*` --> `_disposeBlock`, last assigned on line 38.
+  36.   	if (self == nil) return nil;
+  37.   
+  38. > 	_disposeBlock = (__bridge void *)self;
+  39.   	OSMemoryBarrier();
+  40.   
+
+Pods/WCDB/objc/WCDB/interface/fts/WCTTokenizer+Apple.mm:38: error: MEMORY_LEAK
+  memory dynamically allocated by call to `CFLocaleCopyCurrent()` at line 38, column 170 is not reachable after line 38, column 23.
+  36.           : CursorInfoBase(input, inputLength, tokenizerInfo)
+  37.           , m_input(input ? [[NSString alloc] initWithBytes:input length:inputLength encoding:NSUTF8StringEncoding] : @"")
+  38. >         , m_tokenizer(m_input ? CFStringTokenizerCreate(kCFAllocatorDefault, (__bridge CFStringRef) m_input, CFRangeMake(0, m_input.length), kCFStringTokenizerUnitWord, CFLocaleCopyCurrent()) : NULL)
+  39.           , m_offset(0)
+  40.           , m_position(0)
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACUnarySequence.m:41: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 41, column 33.
+  39.   
+  40.   - (instancetype)bind:(RACStreamBindBlock (^)(void))block {
+  41. > 	RACStreamBindBlock bindBlock = block();
+  42.   	BOOL stop = NO;
+  43.   
+
+Pods/WCDBOptimizedSQLCipher/src/queue.c:44: error: NULL_DEREFERENCE
+  pointer `elem` last assigned on line 43 could be null and is dereferenced at line 44, column 3.
+  42.     assert(pQueue!=NULL);
+  43.     QueueElem* elem = (QueueElem*)sqlite3_malloc(sizeof(QueueElem));
+  44. >   elem->pData = pData;
+  45.     elem->pPrev = pQueue->pTail;
+  46.     elem->pNext = NULL;
+
+Pods/Masonry/Masonry/MASCompositeConstraint.m:45: error: NULL_DEREFERENCE
+  pointer `newConstraint` last assigned on line 43 could be null and is dereferenced by call to `addObject:` at line 45, column 5.
+  43.       MASConstraint *newConstraint = [strongDelegate constraint:self addConstraintWithLayoutAttribute:layoutAttribute];
+  44.       newConstraint.delegate = self;
+  45. >     [self.childConstraints addObject:newConstraint];
+  46.       return newConstraint;
+  47.   }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:45: error: DEAD_STORE
+  The value written to &completed (type _fn_(*)) is never used.
+  43.   	next = [next copy];
+  44.   	error = [error copy];
+  45. > 	completed = [completed copy];
+  46.   
+  47.   	RACCompoundDisposable *compoundDisposable = [RACCompoundDisposable compoundDisposable];
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:44: error: DEAD_STORE
+  The value written to &error (type _fn_(*)) is never used.
+  42.   static RACDisposable *subscribeForever (RACSignal *signal, void (^next)(id), void (^error)(NSError *, RACDisposable *), void (^completed)(RACDisposable *)) {
+  43.   	next = [next copy];
+  44. > 	error = [error copy];
+  45.   	completed = [completed copy];
+  46.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:43: error: DEAD_STORE
+  The value written to &next (type _fn_(*)) is never used.
+  41.   // subscribed to again.
+  42.   static RACDisposable *subscribeForever (RACSignal *signal, void (^next)(id), void (^error)(NSError *, RACDisposable *), void (^completed)(RACDisposable *)) {
+  43. > 	next = [next copy];
+  44.   	error = [error copy];
+  45.   	completed = [completed copy];
+
+Pods/WCDB/objc/WCDB/interface/transaction/WCTDatabase+Transaction.mm:43: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `onTransactionStateChanged` is not checked for null, there could be a null pointer dereference: pointer `onTransactionStateChanged` last accessed on line 43 could be null and is dereferenced at line 43, column 13.
+  41.       if (onTransactionStateChanged) {
+  42.           event = [onTransactionStateChanged](WCDB::Database::TransactionEventType eventType) {
+  43. >             onTransactionStateChanged((WCTTransactionEvent) eventType);
+  44.           };
+  45.       }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACImmediateScheduler.m:46: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `recursiveBlock` is not checked for null, there could be a null pointer dereference: pointer `recursiveBlock` could be null and is dereferenced at line 46, column 3.
+  44.   - (RACDisposable *)scheduleRecursiveBlock:(RACSchedulerRecursiveBlock)recursiveBlock {
+  45.   	for (__block NSUInteger remaining = 1; remaining > 0; remaining--) {
+  46. > 		recursiveBlock(^{
+  47.   			remaining++;
+  48.   		});
+
+Pods/WCDBOptimizedSQLCipher/src/crypto.c:46: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 45 could be null and is dereferenced by call to `sqlite3VdbeSetNumCols()` at line 46, column 3.
+  44.   static void codec_vdbe_return_static_string(Parse *pParse, const char *zLabel, const char *value){
+  45.     Vdbe *v = sqlite3GetVdbe(pParse);
+  46. >   sqlite3VdbeSetNumCols(v, 1);
+  47.     sqlite3VdbeSetColName(v, 0, COLNAME_NAME, zLabel, SQLITE_STATIC);
+  48.     sqlite3VdbeAddOp4(v, OP_String8, 0, 1, 0, value, 0);
+
+Pods/WCDB/objc/WCDB/interface/orm/accessor/WCTRuntimeObjCAccessor.mm:48: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `this -> getProperty` is not checked for null, there could be a null pointer dereference: pointer `getProperty` last accessed on line 48 could be null and is dereferenced at line 48, column 31.
+  46.       auto block = ^(InstanceType instance) {
+  47.         using Archiver = OCType (*)(InstanceType, SEL);
+  48. >       PropertyType property = getProperty(instance);
+  49.         OCType value = property ? ((Archiver) implementation)(property, ArchiveSelector) : nil;
+  50.         return value;
+
+Pods/WCDB/objc/WCDB/interface/transaction/WCTDatabase+Transaction.mm:49: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `inTransaction` is not checked for null, there could be a null pointer dereference: pointer `inTransaction` last accessed on line 49 could be null and is dereferenced at line 49, column 20.
+  47.       return _database->runTransaction([inTransaction](WCDB::Error &) -> bool {
+  48.           @autoreleasepool {
+  49. >             return inTransaction();
+  50.           }
+  51.       },
+
+Pods/ReactiveCocoa/ReactiveCocoa/NSObject+RACPropertySubscribing.m:52: error: DEAD_STORE
+  The value written to &rac_exitBlock_52 (type _fn_(*)) is never used.
+  50.   			// being read on another thread.
+  51.   			[objectLock lock];
+  52. > 			@onExit {
+  53.   				[objectLock unlock];
+  54.   			};
+
+Pods/WCDBOptimizedSQLCipher/src/callback.c:59: error: NULL_DEREFERENCE
+  pointer `pColl2` last assigned on line 58 could be null and is dereferenced at line 59, column 9.
+  57.     for(i=0; i<3; i++){
+  58.       pColl2 = sqlite3FindCollSeq(db, aEnc[i], z, 0);
+  59. >     if( pColl2->xCmp!=0 ){
+  60.         memcpy(pColl, pColl2, sizeof(CollSeq));
+  61.         pColl->xDel = 0;         /* Do not copy the destructor */
+
+Pods/WCDBOptimizedSQLCipher/src/queue.c:60: error: NULL_DEREFERENCE
+  pointer `elem` last assigned on line 59 could be null and is dereferenced at line 60, column 3.
+  58.     assert(pQueue!=NULL);
+  59.     QueueElem* elem = (QueueElem*)sqlite3_malloc(sizeof(QueueElem));
+  60. >   elem->pData = pData;
+  61.     elem->pPrev = NULL;
+  62.     elem->pNext = pQueue->pHead;
+
+Pods/ReactiveCocoa/ReactiveCocoa/NSObject+RACPropertySubscribing.m:64: error: DEAD_STORE
+  The value written to &rac_exitBlock_64 (type _fn_(*)) is never used.
+  62.   			// (if another thread is waiting on the lock above).
+  63.   			[objectLock lock];
+  64. > 			@onExit {
+  65.   				[objectLock unlock];
+  66.   			};
+
+Pods/WCDB/objc/WCDB/interface/statictics/WCTStatistics.mm:60: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `trace` is not checked for null, there could be a null pointer dereference: pointer `trace` last accessed on line 60 could be null and is dereferenced at line 60, column 13.
+  58.       if (trace) {
+  59.           WCDB::Database::SetGlobalSQLTrace([trace](const std::string &sql) {
+  60. >             trace(@(sql.c_str()));
+  61.           });
+  62.       } else {
+
+Pods/WCDB/objc/WCDB/interface/orm/accessor/WCTRuntimeObjCAccessor.mm:64: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `this -> setProperty` is not checked for null, there could be a null pointer dereference: pointer `setProperty` last accessed on line 64 could be null and is dereferenced at line 64, column 11.
+  62.         if (instance) {
+  63.             PropertyType property = ((Unarchiver) implementation)(propertyClass, UnarchiveSelector, value);
+  64. >           setProperty(instance, property);
+  65.         }
+  66.       };
+
+Pods/SQLiteRepairKit/repair/sqliterk_values.c:82: error: MEMORY_LEAK
+  memory dynamically allocated to `theValues` by call to `sqliterkOSMalloc()` at line 69, column 34 is not reachable after line 82, column 9.
+  80.   sqliterkValuesAlloc_Failed:
+  81.       if (theValues) {
+  82. >         sqliterkValuesFree(theValues);
+  83.       }
+  84.       return rc;
+
+Pods/SQLiteRepairKit/repair/sqliterk_output.cpp:68: error: NULL_DEREFERENCE
+  pointer `m_key` last assigned on line 67 could be null and is dereferenced by call to `memcpy()` at line 68, column 9.
+  66.           m_keyLength = keyLength;
+  67.           m_key = (unsigned char *) realloc(m_key, m_keyLength);
+  68. >         memcpy(m_key, key, m_keyLength);
+  69.   #else
+  70.           RC4_set_key(&m_rc4Key, keyLength, (const unsigned char *) key);
+
+Pods/WCDB/objc/WCDB/interface/orm/accessor/WCTRuntimeCppAccessor.h:68: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `this -> getProperty` is not checked for null, there could be a null pointer dereference: pointer `getProperty` last accessed on line 68 could be null and is dereferenced at line 68, column 45.
+  66.       {
+  67.           return ^(InstanceType instance) {
+  68. >           return convertPropertyTypeToCType(this->getProperty(instance));
+  69.           };
+  70.       }
+
+Pods/WCDB/objc/WCDB/interface/orm/accessor/WCTRuntimeCppAccessor.h:75: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `this -> setProperty` is not checked for null, there could be a null pointer dereference: pointer `setProperty` last accessed on line 75 could be null and is dereferenced at line 75, column 11.
+  73.       {
+  74.           return ^(InstanceType instance, CType value) {
+  75. >           this->setProperty(instance, convertCTypeToPropertyType(value));
+  76.           };
+  77.       }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSubject.m:85: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 85, column 3.
+  83.   
+  84.   	for (id<RACSubscriber> subscriber in subscribers) {
+  85. > 		block(subscriber);
+  86.   	}
+  87.   }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:83: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 82 could be null and is dereferenced at line 83, column 9.
+  81.   - (id)performWith:(id)obj1 {
+  82.   	id (^block)(id) = self.block;
+  83. > 	return block(obj1);
+  84.   }
+  85.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACStream.m:83: error: DEAD_STORE
+  The value written to &stream (type RACStream*) is never used.
+  81.   
+  82.   - (instancetype)flatten {
+  83. > 	__weak RACStream *stream __attribute__((unused)) = self;
+  84.   	return [[self flattenMap:^(id value) {
+  85.   		return value;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:88: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 87 could be null and is dereferenced at line 88, column 9.
+  86.   - (id)performWith:(id)obj1 :(id)obj2 {
+  87.   	id (^block)(id, id) = self.block;
+  88. > 	return block(obj1, obj2);
+  89.   }
+  90.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSequence.m:89: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 89, column 33.
+  87.   
+  88.   - (instancetype)bind:(RACStreamBindBlock (^)(void))block {
+  89. > 	RACStreamBindBlock bindBlock = block();
+  90.   	return [[self bind:bindBlock passingThroughValuesFromSequence:nil] setNameWithFormat:@"[%@] -bind:", self.name];
+  91.   }
+
+Pods/WCDB/objc/WCDB/interface/transaction/WCTTransaction.mm:91: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `onTransactionStateChanged` is not checked for null, there could be a null pointer dereference: pointer `onTransactionStateChanged` last accessed on line 91 could be null and is dereferenced at line 91, column 17.
+  89.           if (onTransactionStateChanged) {
+  90.               event = [onTransactionStateChanged](WCDB::Database::TransactionEventType eventType) {
+  91. >                 onTransactionStateChanged((WCTTransactionEvent) eventType);
+  92.               };
+  93.           }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:93: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 92 could be null and is dereferenced at line 93, column 9.
+  91.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 {
+  92.   	id (^block)(id, id, id) = self.block;
+  93. > 	return block(obj1, obj2, obj3);
+  94.   }
+  95.   
+
+Pods/WCDB/objc/WCDB/interface/transaction/WCTTransaction.mm:97: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `inTransaction` is not checked for null, there could be a null pointer dereference: pointer `inTransaction` last accessed on line 97 could be null and is dereferenced at line 97, column 24.
+  95.           BOOL result = _transaction->runTransaction([inTransaction](WCDB::Error &) -> bool {
+  96.               @autoreleasepool {
+  97. >                 return inTransaction();
+  98.               }
+  99.           },
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:98: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 97 could be null and is dereferenced at line 98, column 9.
+  96.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 {
+  97.   	id (^block)(id, id, id, id) = self.block;
+  98. > 	return block(obj1, obj2, obj3, obj4);
+  99.   }
+  100.   
+
+Pods/WCDBOptimizedSQLCipher/src/os_wcdb.c:110: error: NULL_DEREFERENCE
+  pointer `info` last assigned on line 109 could be null and is dereferenced at line 110, column 3.
+  108.     }
+  109.     WCDBWaitInfo* info = (WCDBWaitInfo*)sqlite3_malloc(sizeof(WCDBWaitInfo));
+  110. >   info->eFlag = eFlag;
+  111.     info->eFileLock = eFileLock;
+  112.     info->pFile = pFile;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:103: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 102 could be null and is dereferenced at line 103, column 9.
+  101.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 {
+  102.   	id (^block)(id, id, id, id, id) = self.block;
+  103. > 	return block(obj1, obj2, obj3, obj4, obj5);
+  104.   }
+  105.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/NSObject+RACKVOWrapper.m:104: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `value` is not checked for null, there could be a null pointer dereference: pointer `observerDisposable` last assigned on line 103 could be null and is dereferenced by call to `addDisposable:` at line 104, column 3.
+  102.   	void (^addObserverToValue)(NSObject *) = ^(NSObject *value) {
+  103.   		RACDisposable *observerDisposable = [value rac_observeKeyPath:keyPathTail options:(options & ~NSKeyValueObservingOptionInitial) observer:weakObserver block:block];
+  104. > 		[firstComponentDisposable() addDisposable:observerDisposable];
+  105.   	};
+  106.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:108: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 107 could be null and is dereferenced at line 108, column 9.
+  106.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 {
+  107.   	id (^block)(id, id, id, id, id, id) = self.block;
+  108. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6);
+  109.   }
+  110.   
+
+Pods/WCDB/objc/WCDB/interface/database/WCTDatabase+Database.mm:107: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `onClosed` is not checked for null, there could be a null pointer dereference: pointer `onClosed` last accessed on line 107 could be null and is dereferenced at line 107, column 13.
+  105.       if (onClosed) {
+  106.           callback = [onClosed]() {
+  107. >             onClosed();
+  108.           };
+  109.       }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:113: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 112 could be null and is dereferenced at line 113, column 9.
+  111.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 {
+  112.   	id (^block)(id, id, id, id, id, id, id) = self.block;
+  113. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7);
+  114.   }
+  115.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:118: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 117 could be null and is dereferenced at line 118, column 9.
+  116.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 {
+  117.   	id (^block)(id, id, id, id, id, id, id, id) = self.block;
+  118. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8);
+  119.   }
+  120.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACDynamicSequence.m:124: error: DEAD_STORE
+  The value written to &tail (type RACSequence*) is never used.
+  122.   		// Put this sequence's tail onto the autorelease pool so we stop
+  123.   		// recursing.
+  124. > 		__autoreleasing RACSequence *tail __attribute__((unused)) = _tail;
+  125.   	}
+  126.   	
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTSelectBase+NoARC.mm:148: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `blobAccessor -> setValue` is not checked for null, there could be a null pointer dereference: pointer `blobAccessor->setValue` last accessed on line 148 could be null and is dereferenced at line 148, column 21.
+  146.                       WCTCppAccessor<WCTColumnTypeBinary> *blobAccessor = (WCTCppAccessor<WCTColumnTypeBinary> *) accessor.get();
+  147.                       int size = 0;
+  148. >                     blobAccessor->setValue(object,
+  149.                                              _statementHandle->getValue<(WCDB::ColumnType) WCTColumnTypeBinary>(index, size),
+  150.                                              size);
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTSelectBase+NoARC.mm:137: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `floatAccessor -> setValue` is not checked for null, there could be a null pointer dereference: pointer `floatAccessor->setValue` last accessed on line 137 could be null and is dereferenced at line 137, column 21.
+  135.                   case WCTColumnTypeDouble: {
+  136.                       WCTCppAccessor<WCTColumnTypeDouble> *floatAccessor = (WCTCppAccessor<WCTColumnTypeDouble> *) accessor.get();
+  137. >                     floatAccessor->setValue(object,
+  138.                                               _statementHandle->getValue<(WCDB::ColumnType) WCTColumnTypeDouble>(index));
+  139.                   } break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTSelectBase+NoARC.mm:127: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `i32Accessor -> setValue` is not checked for null, there could be a null pointer dereference: pointer `i32Accessor->setValue` last accessed on line 127 could be null and is dereferenced at line 127, column 21.
+  125.                   case WCTColumnTypeInteger32: {
+  126.                       WCTCppAccessor<WCTColumnTypeInteger32> *i32Accessor = (WCTCppAccessor<WCTColumnTypeInteger32> *) accessor.get();
+  127. >                     i32Accessor->setValue(object,
+  128.                                             _statementHandle->getValue<(WCDB::ColumnType) WCTColumnTypeInteger32>(index));
+  129.                   } break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTSelectBase+NoARC.mm:132: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `i64Accessor -> setValue` is not checked for null, there could be a null pointer dereference: pointer `i64Accessor->setValue` last accessed on line 132 could be null and is dereferenced at line 132, column 21.
+  130.                   case WCTColumnTypeInteger64: {
+  131.                       WCTCppAccessor<WCTColumnTypeInteger64> *i64Accessor = (WCTCppAccessor<WCTColumnTypeInteger64> *) accessor.get();
+  132. >                     i64Accessor->setValue(object,
+  133.                                             _statementHandle->getValue<(WCDB::ColumnType) WCTColumnTypeInteger64>(index));
+  134.                   } break;
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTSelectBase+NoARC.mm:195: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `objcAccessor -> setObject` is not checked for null, there could be a null pointer dereference: pointer `objcAccessor->setObject` last accessed on line 195 could be null and is dereferenced at line 195, column 13.
+  193.                       break;
+  194.               }
+  195. >             objcAccessor->setObject(object, value);
+  196.           } break;
+  197.           default:
+
+Pods/WCDB/objc/WCDB/interface/chaincall/WCTSelectBase+NoARC.mm:142: warning: IVAR_NOT_NULL_CHECKED
+  Instance variable `textAccessor -> setValue` is not checked for null, there could be a null pointer dereference: pointer `textAccessor->setValue` last accessed on line 142 could be null and is dereferenced at line 142, column 21.
+  140.                   case WCTColumnTypeString: {
+  141.                       WCTCppAccessor<WCTColumnTypeString> *textAccessor = (WCTCppAccessor<WCTColumnTypeString> *) accessor.get();
+  142. >                     textAccessor->setValue(object,
+  143.                                              _statementHandle->getValue<(WCDB::ColumnType) WCTColumnTypeString>(index));
+  144.                   } break;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:123: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 122 could be null and is dereferenced at line 123, column 9.
+  121.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 {
+  122.   	id (^block)(id, id, id, id, id, id, id, id, id) = self.block;
+  123. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9);
+  124.   }
+  125.   
+
+Pods/Masonry/Masonry/MASConstraint.m:129: error: USE_AFTER_LIFETIME
+  Reference to stack variable _cmd is returned at line 129, column 1.
+  127.           return self;
+  128.       };
+  129. > }
+  130.   
+  131.   - (MASConstraint * (^)(id offset))mas_offset {
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACCompoundDisposable.m:149: error: MEMORY_LEAK
+  memory dynamically allocated by call to `RACCreateDisposablesArray()` at line 145, column 45 is not reachable after line 149, column 5.
+  147.   
+  148.   			if (RACCOMPOUNDDISPOSABLE_ADDED_ENABLED()) {
+  149. > 				RACCOMPOUNDDISPOSABLE_ADDED(self.description.UTF8String, disposable.description.UTF8String, CFArrayGetCount(_disposables) + RACCompoundDisposableInlineCount);
+  150.   			}
+  151.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:128: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 127 could be null and is dereferenced at line 128, column 9.
+  126.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 :(id)obj10 {
+  127.   	id (^block)(id, id, id, id, id, id, id, id, id, id) = self.block;
+  128. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10);
+  129.   }
+  130.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:133: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 132 could be null and is dereferenced at line 133, column 9.
+  131.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 :(id)obj10 :(id)obj11 {
+  132.   	id (^block)(id, id, id, id, id, id, id, id, id, id, id) = self.block;
+  133. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11);
+  134.   }
+  135.   
+
+Pods/WCDBOptimizedSQLCipher/src/prepare.c:216: error: UNINITIALIZED_VALUE
+  The value read from meta[_] was never initialized.
+  214.       sqlite3BtreeGetMeta(pDb->pBt, i+1, (u32 *)&meta[i]);
+  215.     }
+  216. >   pDb->pSchema->schema_cookie = meta[BTREE_SCHEMA_VERSION-1];
+  217.   
+  218.     /* If opening a non-empty database, check the text encoding. For the
+
+Pods/WCDBOptimizedSQLCipher/src/prepare.c:265: error: UNINITIALIZED_VALUE
+  The value read from meta[_] was never initialized.
+  263.     ** file_format==4    Version 3.3.0.  // DESC indices.  Boolean constants
+  264.     */
+  265. >   pDb->pSchema->file_format = (u8)meta[BTREE_FILE_FORMAT-1];
+  266.     if( pDb->pSchema->file_format==0 ){
+  267.       pDb->pSchema->file_format = 1;
+
+Pods/Masonry/Masonry/MASViewConstraint.m:144: error: USE_AFTER_LIFETIME
+  Reference to stack variable _cmd is returned at line 144, column 1.
+  142.           return self;
+  143.       };
+  144. > }
+  145.   
+  146.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:138: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 137 could be null and is dereferenced at line 138, column 9.
+  136.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 :(id)obj10 :(id)obj11 :(id)obj12 {
+  137.   	id (^block)(id, id, id, id, id, id, id, id, id, id, id, id) = self.block;
+  138. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12);
+  139.   }
+  140.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:143: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 142 could be null and is dereferenced at line 143, column 9.
+  141.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 :(id)obj10 :(id)obj11 :(id)obj12 :(id)obj13 {
+  142.   	id (^block)(id, id, id, id, id, id, id, id, id, id, id, id, id) = self.block;
+  143. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13);
+  144.   }
+  145.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:148: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 147 could be null and is dereferenced at line 148, column 9.
+  146.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 :(id)obj10 :(id)obj11 :(id)obj12 :(id)obj13 :(id)obj14 {
+  147.   	id (^block)(id, id, id, id, id, id, id, id, id, id, id, id, id, id) = self.block;
+  148. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13, obj14);
+  149.   }
+  150.   
+
+Pods/Masonry/Masonry/MASViewConstraint.m:155: error: USE_AFTER_LIFETIME
+  Reference to stack variable _cmd is returned at line 155, column 1.
+  153.           return self;
+  154.       };
+  155. > }
+  156.   
+  157.   #pragma mark - MASLayoutPriority proxy
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3_aux.c:209: error: DEAD_STORE
+  The value written to &iNext (type int) is never used.
+  207.     }
+  208.     if( iLangid>=0 ){
+  209. >     pInfo->aConstraintUsage[iLangid].argvIndex = iNext++;
+  210.       pInfo->estimatedCost--;
+  211.     }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACBlockTrampoline.m:153: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` last assigned on line 152 could be null and is dereferenced at line 153, column 9.
+  151.   - (id)performWith:(id)obj1 :(id)obj2 :(id)obj3 :(id)obj4 :(id)obj5 :(id)obj6 :(id)obj7 :(id)obj8 :(id)obj9 :(id)obj10 :(id)obj11 :(id)obj12 :(id)obj13 :(id)obj14 :(id)obj15 {
+  152.   	id (^block)(id, id, id, id, id, id, id, id, id, id, id, id, id, id, id) = self.block;
+  153. > 	return block(obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12, obj13, obj14, obj15);
+  154.   }
+  155.   
+
+Pods/SQLiteRepairKit/repair/sqliterk_output.cpp:164: error: NULL_DEREFERENCE
+  pointer `ctx` last assigned on line 161 could be null and is dereferenced at line 164, column 9.
+  162.           (sqliterk_output_ctx *) sqliterk_get_user_info(rk);
+  163.   
+  164. >     if (ctx->cancelled)
+  165.           return SQLITERK_CANCELLED;
+  166.   
+
+Pods/Masonry/Masonry/MASViewConstraint.m:167: error: USE_AFTER_LIFETIME
+  Reference to stack variable _cmd is returned at line 167, column 1.
+  165.           return self;
+  166.       };
+  167. > }
+  168.   
+  169.   #pragma mark - NSLayoutRelation proxy
+
+Pods/WCDBOptimizedSQLCipher/src/vtab.c:185: error: MEMORY_LEAK
+  `db2` is not reachable after line 185, column 7.
+  183.       }else{
+  184.         pVTable->pNext = db2->pDisconnect;
+  185. >       db2->pDisconnect = pVTable;
+  186.       }
+  187.       pVTable = pNext;
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3_tokenizer.c:170: error: DEAD_STORE
+  The value written to &z (type char*) is never used.
+  168.   ){
+  169.     int rc;
+  170. >   char *z = (char *)zArg;
+  171.     int n = 0;
+  172.     char *zCopy;
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:168: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 166 could be null and is dereferenced by call to `sqlite3VdbeCurrentAddr()` at line 168, column 14.
+  166.     Vdbe *v = sqlite3GetVdbe(p);
+  167.     int i;
+  168. >   int iEnd = sqlite3VdbeCurrentAddr(v);
+  169.   #ifndef SQLITE_OMIT_VIRTUALTABLE
+  170.     VTable *pVTab = IsVirtual(pTab) ? sqlite3GetVTable(p->db, pTab) : 0;
+
+Pods/Masonry/Masonry/MASViewConstraint.m:193: error: USE_AFTER_LIFETIME
+  Reference to stack variable _cmd is returned at line 193, column 1.
+  191.           }
+  192.       };
+  193. > }
+  194.   
+  195.   #pragma mark - Semantic properties
+
+Pods/WCDBOptimizedSQLCipher/src/analyze.c:248: error: UNINITIALIZED_VALUE
+  The value read from aCreateTbl[_] was never initialized.
+  246.       assert( i<ArraySize(aTable) );
+  247.       sqlite3VdbeAddOp4Int(v, OP_OpenWrite, iStatCur+i, aRoot[i], iDb, 3);
+  248. >     sqlite3VdbeChangeP5(v, aCreateTbl[i]);
+  249.       VdbeComment((v, aTable[i].zName));
+  250.     }
+
+Pods/WCDBOptimizedSQLCipher/src/analyze.c:247: error: UNINITIALIZED_VALUE
+  The value read from aRoot[_] was never initialized.
+  245.     for(i=0; aTable[i].zCols; i++){
+  246.       assert( i<ArraySize(aTable) );
+  247. >     sqlite3VdbeAddOp4Int(v, OP_OpenWrite, iStatCur+i, aRoot[i], iDb, 3);
+  248.       sqlite3VdbeChangeP5(v, aCreateTbl[i]);
+  249.       VdbeComment((v, aTable[i].zName));
+
+Pods/WCDBOptimizedSQLCipher/src/printf.c:192: error: DEAD_STORE
+  The value written to &xtype (type unsigned char) is never used.
+  190.     etByte flag_longlong;      /* True if the "ll" flag is present */
+  191.     etByte done;               /* Loop termination flag */
+  192. >   etByte xtype = etINVALID;  /* Conversion paradigm */
+  193.     u8 bArgList;               /* True for SQLITE_PRINTF_SQLFUNC */
+  194.     u8 useIntern;              /* Ok to use internal conversions (ex: %T) */
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACTestScheduler.m:182: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `self_weak_` is not checked for null, there could be a null pointer dereference: pointer `schedulingDisposable` last assigned on line 181 could be null and is dereferenced by call to `addDisposable:` at line 182, column 4.
+  180.   			// Schedule the next interval.
+  181.   			RACDisposable *schedulingDisposable = [self after:[date dateByAddingTimeInterval:interval] repeatingEvery:interval withLeeway:leeway schedule:block];
+  182. > 			[compoundDisposable addDisposable:schedulingDisposable];
+  183.   
+  184.   			block();
+
+Pods/WCDBOptimizedSQLCipher/src/os_wcdb.c:199: error: NULL_DEREFERENCE
+  pointer `info` last assigned on line 198 could be null and is dereferenced at line 199, column 3.
+  197.     
+  198.     WCDBShmWaitInfo* info = (WCDBShmWaitInfo*)sqlite3_malloc(sizeof(WCDBShmWaitInfo));
+  199. >   info->eFlag = eFlag;
+  200.     info->oMask = oMask;
+  201.     info->pFile = pFile;
+
+PodTest/ViewController.m:185: error: NULL_DEREFERENCE
+  pointer `a` last assigned on line 182 could be null and is dereferenced by call to `arrayByAddingObject:` at line 185, column 5.
+  183.       
+  184.       NSArray *emptyArr = @[];
+  185. >     [emptyArr arrayByAddingObject:a];
+  186.       
+  187.       NSArray *singleArr = @[@"1"];
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSequence.m:199: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `reschedule` is not checked for null, there could be a null pointer dereference: pointer `reschedule` could be null and is dereferenced at line 199, column 4.
+  197.   
+  198.   			sequence = sequence.tail;
+  199. > 			reschedule();
+  200.   		}];
+  201.   	}] setNameWithFormat:@"[%@] -signalWithScheduler: %@", self.name, scheduler];
+
+PodTest/ViewController.m:204: error: NULL_DEREFERENCE
+  pointer `sex` last assigned on line 203 could be null and is dereferenced at line 204, column 25.
+  202.   {
+  203.       NSString *sex = nil;
+  204. >     NSDictionary *dic = @{@"name":@"小明",
+  205.                             @"age":@"18",
+  206.                             @"sex":sex,
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:208: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `scheduler` is not checked for null, there could be a null pointer dereference: pointer `schedulerDisposable` last assigned on line 207 could be null and is dereferenced by call to `addDisposable:` at line 208, column 4.
+  206.   			RACScheduler *delayScheduler = RACScheduler.currentScheduler ?: scheduler;
+  207.   			RACDisposable *schedulerDisposable = [delayScheduler afterDelay:interval schedule:block];
+  208. > 			[disposable addDisposable:schedulerDisposable];
+  209.   		};
+  210.   
+
+Pods/WCDBOptimizedSQLCipher/src/delete.c:233: error: DEAD_STORE
+  The value written to &nPk (type short) is never used.
+  231.     Index *pPk;            /* The PRIMARY KEY index on the table */
+  232.     int iPk = 0;           /* First of nPk registers holding PRIMARY KEY value */
+  233. >   i16 nPk = 1;           /* Number of columns in the PRIMARY KEY */
+  234.     int iKey;              /* Memory cell holding key of row to be deleted */
+  235.     i16 nKey;              /* Number of memory cells in the row key */
+
+Pods/ReactiveCocoa/ReactiveCocoa/extobjc/RACEXTRuntimeExtensions.m:226: error: NULL_DEREFERENCE
+  pointer `methods` last assigned on line 222  at line 226, column 28.
+  224.   
+  225.       for (unsigned methodIndex = 0;methodIndex < methodCount;++methodIndex) {
+  226. >         if (method_getName(methods[methodIndex]) == aSelector) {
+  227.               foundMethod = methods[methodIndex];
+  228.               break;
+
+PodTest/ViewController.m:237: error: DEAD_STORE
+  The value written to &a (type int) is never used.
+  235.           NSLog(@"c==%@",c);
+  236.       };
+  237. >     a++;
+  238.       b = @"b2";
+  239.       c = @[@"c2"];
+
+PodTest/ViewController.m:239: error: DEAD_STORE
+  The value written to &c (type NSArray*) is never used.
+  237.       a++;
+  238.       b = @"b2";
+  239. >     c = @[@"c2"];
+  240.       NSLog(@"内存地址2：%p",b);
+  241.       NSLog(@"内存地址2：%x",&b);
+
+Pods/WCDBOptimizedSQLCipher/src/rowset.c:260: error: MEMORY_LEAK
+  `pTail pA` is not reachable after line 260, column 9.
+  258.         pB = pB->pRight;
+  259.         if( pB==0 ){
+  260. >         pTail->pRight = pA;
+  261.           break;
+  262.         }
+
+Pods/WCDBOptimizedSQLCipher/src/rowset.c:253: error: MEMORY_LEAK
+  `pTail pB` is not reachable after line 253, column 9.
+  251.         pA = pA->pRight;
+  252.         if( pA==0 ){
+  253. >         pTail->pRight = pB;
+  254.           break;
+  255.         }
+
+Pods/WCDBOptimizedSQLCipher/src/rowset.c:265: error: UNINITIALIZED_VALUE
+  The value read from head.pRight was never initialized.
+  263.       }
+  264.     }
+  265. >   return head.pRight;
+  266.   }
+  267.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACTuple.m:248: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `value` is not checked for null, there could be a null pointer dereference: pointer `ptr` last assigned on line 247 could be null and is dereferenced at line 248, column 3.
+  246.   	[variables enumerateObjectsUsingBlock:^(NSValue *value, NSUInteger index, BOOL *stop) {
+  247.   		__strong id *ptr = (__strong id *)value.pointerValue;
+  248. > 		*ptr = tuple[index];
+  249.   	}];
+  250.   }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACTuple.m:248: error: NULL_DEREFERENCE
+  pointer `ptr` last assigned on line 247  at line 248, column 3.
+  246.   	[variables enumerateObjectsUsingBlock:^(NSValue *value, NSUInteger index, BOOL *stop) {
+  247.   		__strong id *ptr = (__strong id *)value.pointerValue;
+  248. > 		*ptr = tuple[index];
+  249.   	}];
+  250.   }
+
+Pods/Masonry/Masonry/MASConstraintMaker.m:264: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `group` is not checked for null, there could be a null pointer dereference: pointer `group` could be null and is dereferenced at line 264, column 9.
+  262.       return ^id(dispatch_block_t group) {
+  263.           NSInteger previousCount = self.constraints.count;
+  264. >         group();
+  265.   
+  266.           NSArray *children = [self.constraints subarrayWithRange:NSMakeRange(previousCount, self.constraints.count - previousCount)];
+
+Pods/WCDBOptimizedSQLCipher/src/complete.c:278: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `sqlite3ValueNew()` at line 278, column 10.
+  276.     if( rc ) return rc;
+  277.   #endif
+  278. >   pVal = sqlite3ValueNew(0);
+  279.     sqlite3ValueSetStr(pVal, -1, zSql, SQLITE_UTF16NATIVE, SQLITE_STATIC);
+  280.     zSql8 = sqlite3ValueText(pVal, SQLITE_UTF8);
+
+Pods/WCDBOptimizedSQLCipher/src/rowset.c:287: error: UNINITIALIZED_VALUE
+  The value read from aBucket[_] was never initialized.
+  285.       pIn = pNext;
+  286.     }
+  287. >   pIn = aBucket[0];
+  288.     for(i=1; i<sizeof(aBucket)/sizeof(aBucket[0]); i++){
+  289.       if( aBucket[i]==0 ) continue;
+
+Pods/WCDBOptimizedSQLCipher/src/rowset.c:290: error: UNINITIALIZED_VALUE
+  The value read from aBucket[_] was never initialized.
+  288.     for(i=1; i<sizeof(aBucket)/sizeof(aBucket[0]); i++){
+  289.       if( aBucket[i]==0 ) continue;
+  290. >     pIn = pIn ? rowSetEntryMerge(pIn, aBucket[i]) : aBucket[i];
+  291.     }
+  292.     return pIn;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACStream.m:280: error: USE_AFTER_LIFETIME
+  Reference to stack variable running is returned at line 280, column 2.
+  278.   			return [class return:running];
+  279.   		};
+  280. > 	}] setNameWithFormat:@"[%@] -scanWithStart: %@ reduceWithIndex:", self.name, [startingValue rac_description]];
+  281.   }
+  282.   
+
+Pods/WCDBOptimizedSQLCipher/src/util.c:308: error: UNINITIALIZED_VALUE
+  The value read from c was never initialized.
+  306.       b++;
+  307.     }
+  308. >   return c;
+  309.   }
+  310.   int sqlite3_strnicmp(const char *zLeft, const char *zRight, int N){
+
+Pods/SQLiteRepairKit/repair/sqliterk_output.cpp:307: error: NULL_DEREFERENCE
+  pointer `ctx` last assigned on line 304 could be null and is dereferenced at line 307, column 9.
+  305.           (sqliterk_output_ctx *) sqliterk_get_user_info(rk);
+  306.   
+  307. >     if (ctx->cancelled)
+  308.           return SQLITERK_CANCELLED;
+  309.   
+
+Pods/WCDBOptimizedSQLCipher/src/fkey.c:332: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 330 could be null and is dereferenced by call to `sqlite3VdbeMakeLabel()` at line 332, column 13.
+  330.     Vdbe *v = sqlite3GetVdbe(pParse);         /* Vdbe to add code to */
+  331.     int iCur = pParse->nTab - 1;              /* Cursor number to use */
+  332. >   int iOk = sqlite3VdbeMakeLabel(v);        /* jump here if parent key found */
+  333.   
+  334.     /* If nIncr is less than zero, then check at runtime if there are any
+
+Pods/SQLiteRepairKit/repair/sqliterk_values.c:357: error: MEMORY_LEAK
+  memory dynamically allocated by call to `sqliterkOSMalloc()` at line 340, column 23 is not reachable after line 357, column 5.
+  355.   
+  356.   sqliterkValuesAddNoTerminatorText_Failed:
+  357. >     sqliterkValueClear(value);
+  358.       return rc;
+  359.   }
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACStream.m:349: error: USE_AFTER_LIFETIME
+  Reference to stack variable lastValue is returned at line 349, column 2.
+  347.   			return [class return:x];
+  348.   		};
+  349. > 	}] setNameWithFormat:@"[%@] -distinctUntilChanged", self.name];
+  350.   }
+  351.   
+
+Pods/WCDBOptimizedSQLCipher/src/backup.c:371: error: DEAD_STORE
+  The value written to &nSrcPage (type int) is never used.
+  369.       Pager * const pDestPager = sqlite3BtreePager(p->pDest);   /* Dest pager */
+  370.       int ii;                            /* Iterator variable */
+  371. >     int nSrcPage = -1;                 /* Size of source db in pages */
+  372.       int bCloseTrans = 0;               /* True if src db requires unlocking */
+  373.   
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3_aux.c:401: error: DEAD_STORE
+  The value written to &iNext (type int) is never used.
+  399.     }
+  400.     if( iNext<nVal ){
+  401. >     iLangid = iNext++;
+  402.     }
+  403.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:420: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `self` is not checked for null, there could be a null pointer dereference: pointer `selfDisposable` last assigned on line 406 could be null and is dereferenced by call to `addDisposable:` at line 420, column 3.
+  418.   		}];
+  419.   
+  420. > 		[disposable addDisposable:selfDisposable];
+  421.   
+  422.   		RACDisposable *otherDisposable = [signal subscribeNext:^(id x) {
+
+Pods/WCDBOptimizedSQLCipher/src/crypto.c:486: error: DEAD_STORE
+  The value written to &rc (type int) is never used.
+  484.         if(rc == SQLITE_OK) { 
+  485.           CODEC_TRACE(("sqlite3_rekey_v2: committing\n"));
+  486. >         rc = sqlite3BtreeCommit(pDb->pBt); 
+  487.           sqlcipher_codec_key_copy(ctx, CIPHER_WRITE_CTX);
+  488.         } else {
+
+Pods/WCDBOptimizedSQLCipher/src/utf.c:465: error: DEAD_STORE
+  The value written to &c (type int) is never used.
+  463.     if( SQLITE_UTF16NATIVE==SQLITE_UTF16BE ){
+  464.       while( n<nChar ){
+  465. >       READ_UTF16BE(z, 1, c);
+  466.         n++;
+  467.       }
+
+Pods/WCDBOptimizedSQLCipher/src/utf.c:470: error: DEAD_STORE
+  The value written to &c (type int) is never used.
+  468.     }else{
+  469.       while( n<nChar ){
+  470. >       READ_UTF16LE(z, 1, c);
+  471.         n++;
+  472.       }
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:822: error: UNINITIALIZED_VALUE
+  The value read from dest.iSDParm was never initialized.
+  820.       **      D: ...
+  821.       */
+  822. >     addrInsTop = addrCont = sqlite3VdbeAddOp1(v, OP_Yield, dest.iSDParm);
+  823.       VdbeCoverage(v);
+  824.     }
+
+Pods/WCDBOptimizedSQLCipher/src/prepare.c:651: error: UNINITIALIZED_VALUE
+  The value read from sParse.pTriggerPrg was never initialized.
+  649.     /* Delete any TriggerPrg structures allocated while parsing this statement. */
+  650.     while( sParse.pTriggerPrg ){
+  651. >     TriggerPrg *pT = sParse.pTriggerPrg;
+  652.       sParse.pTriggerPrg = pT->pNext;
+  653.       sqlite3DbFree(db, pT);
+
+Pods/WCDBOptimizedSQLCipher/src/prepare.c:632: error: UNINITIALIZED_VALUE
+  The value read from sParse.pVdbe was never initialized.
+  630.   
+  631.     if( db->init.busy==0 ){
+  632. >     Vdbe *pVdbe = sParse.pVdbe;
+  633.       sqlite3VdbeSetSql(pVdbe, zSql, (int)(sParse.zTail-zSql), saveSqlFlag);
+  634.     }
+
+Pods/WCDBOptimizedSQLCipher/src/prepare.c:639: error: UNINITIALIZED_VALUE
+  The value read from sParse.pVdbe was never initialized.
+  637.       assert(!(*ppStmt));
+  638.     }else{
+  639. >     *ppStmt = (sqlite3_stmt*)sParse.pVdbe;
+  640.     }
+  641.   
+
+Pods/WCDBOptimizedSQLCipher/src/prepare.c:606: error: UNINITIALIZED_VALUE
+  The value read from sParse.rc was never initialized.
+  604.       *pzTail = sParse.zTail;
+  605.     }
+  606. >   rc = sParse.rc;
+  607.   
+  608.   #ifndef SQLITE_OMIT_EXPLAIN
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:553: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `subscribeToSignal` is not checked for null, there could be a null pointer dereference: pointer `subscribeToSignal` last assigned on line 537 could be null and is dereferenced at line 553, column 5.
+  551.   				}
+  552.   
+  553. > 				subscribeToSignal(nextSignal);
+  554.   			}];
+  555.   		};
+
+Pods/WCDBOptimizedSQLCipher/src/fkey.c:562: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 554 could be null and is dereferenced by call to `sqlite3VdbeAddOp2()` at line 562, column 17.
+  560.   
+  561.     if( nIncr<0 ){
+  562. >     iFkIfZero = sqlite3VdbeAddOp2(v, OP_FkIfZero, pFKey->isDeferred, 0);
+  563.       VdbeCoverage(v);
+  564.     }
+
+Pods/WCDBOptimizedSQLCipher/src/vdbe.c:3442: error: DEAD_STORE
+  The value written to &p2 (type int) is never used.
+  3440.       assert( (pIn2->flags & MEM_Int)!=0 );
+  3441.       sqlite3VdbeMemIntegerify(pIn2);
+  3442. >     p2 = (int)pIn2->u.i;
+  3443.       /* The p2 value always comes from a prior OP_CreateTable opcode and
+  3444.       ** that opcode will always set the p2 value to 2 or more or else fail.
+
+Pods/WCDBOptimizedSQLCipher/src/vdbe.c:3423: error: DEAD_STORE
+  The value written to &pX (type Btree*) is never used.
+  3421.     assert( DbMaskTest(p->btreeMask, iDb) );
+  3422.     pDb = &db->aDb[iDb];
+  3423. >   pX = pDb->pBt;
+  3424.     assert( pX!=0 );
+  3425.     if( pOp->opcode==OP_OpenWrite ){
+
+Pods/WCDBOptimizedSQLCipher/src/vdbe.c:1367: error: DEAD_STORE
+  The value written to &rc (type int) is never used.
+  1365.     */
+  1366.     assert( p->iStatement==0 || db->flags&SQLITE_CountRows );
+  1367. >   rc = sqlite3VdbeCloseStatement(p, SAVEPOINT_RELEASE);
+  1368.     assert( rc==SQLITE_OK );
+  1369.   
+
+Pods/WCDBOptimizedSQLCipher/src/vdbe.c:3427: error: DEAD_STORE
+  The value written to &wrFlag (type int) is never used.
+  3425.     if( pOp->opcode==OP_OpenWrite ){
+  3426.       assert( OPFLAG_FORDELETE==BTREE_FORDELETE );
+  3427. >     wrFlag = BTREE_WRCSR | (pOp->p5 & OPFLAG_FORDELETE);
+  3428.       assert( sqlite3SchemaMutexHeld(db, iDb, 0) );
+  3429.       if( pDb->pSchema->file_format < p->minWriteFileFormat ){
+
+Pods/WCDBOptimizedSQLCipher/src/os_unix.c:687: error: UNINITIALIZED_VALUE
+  The value read from fd was never initialized.
+  685.   #endif
+  686.     }
+  687. >   return fd;
+  688.   }
+  689.   
+
+Pods/WCDBOptimizedSQLCipher/src/build.c:690: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 688 could be null and is dereferenced by call to `sqlite3VdbeAddOp4Int()` at line 690, column 3.
+  688.     Vdbe *v = sqlite3GetVdbe(p);
+  689.     sqlite3TableLock(p, iDb, MASTER_ROOT, 1, SCHEMA_TABLE(iDb));
+  690. >   sqlite3VdbeAddOp4Int(v, OP_OpenWrite, 0, MASTER_ROOT, iDb, 5);
+  691.     if( p->nTab==0 ){
+  692.       p->nTab = 1;
+
+Pods/WCDBOptimizedSQLCipher/src/pcache.c:715: error: UNINITIALIZED_VALUE
+  The value read from result.pDirty was never initialized.
+  713.       }
+  714.     }
+  715. >   return result.pDirty;
+  716.   }
+  717.   
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:737: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `signalTrigger` is not checked for null, there could be a null pointer dereference: pointer `triggerDisposable` last assigned on line 731 could be null and is dereferenced by call to `addDisposable:` at line 737, column 3.
+  735.   		}];
+  736.   
+  737. > 		[disposable addDisposable:triggerDisposable];
+  738.   
+  739.   		if (!disposable.disposed) {
+
+Pods/WCDBOptimizedSQLCipher/src/pcache.c:746: error: MEMORY_LEAK
+  `p` is not reachable after line 746, column 9.
+  744.         }
+  745.       }
+  746. >     if( NEVER(i==N_SORT_BUCKET-1) ){
+  747.         /* To get here, there need to be 2^(N_SORT_BUCKET) elements in
+  748.         ** the input list.  But that is impossible.
+
+Pods/WCDBOptimizedSQLCipher/src/pcache.c:753: error: UNINITIALIZED_VALUE
+  The value read from a[_] was never initialized.
+  751.       }
+  752.     }
+  753. >   p = a[0];
+  754.     for(i=1; i<N_SORT_BUCKET; i++){
+  755.       if( a[i]==0 ) continue;
+
+Pods/WCDBOptimizedSQLCipher/src/pcache.c:756: error: UNINITIALIZED_VALUE
+  The value read from a[_] was never initialized.
+  754.     for(i=1; i<N_SORT_BUCKET; i++){
+  755.       if( a[i]==0 ) continue;
+  756. >     p = p ? pcacheMergeDirtyList(p, a[i]) : a[i];
+  757.     }
+  758.     return p;
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3.c:810: error: DEAD_STORE
+  The value written to &z (type char*) is never used.
+  808.       }
+  809.       *(z++) = '"';
+  810. >     *(z++) = '\0';
+  811.     }
+  812.     return zRet;
+
+Pods/SQLiteRepairKit/repair/sqliterk_output.cpp:943: error: UNINITIALIZED_VALUE
+  The value read from header.entities was never initialized.
+  941.   
+  942.       // Read all entities.
+  943. >     entities = header.entities;
+  944.       zstrm.next_in = in_buf;
+  945.       zstrm.avail_in = 0;
+
+Pods/WCDBOptimizedSQLCipher/src/trigger.c:954: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 944 could be null and is dereferenced by call to `sqlite3VdbeAddOp4()` at line 954, column 5.
+  952.       int bRecursive = (p->zName && 0==(pParse->db->flags&SQLITE_RecTriggers));
+  953.   
+  954. >     sqlite3VdbeAddOp4(v, OP_Program, reg, ignoreJump, ++pParse->nMem,
+  955.                         (const char *)pPrg->pProgram, P4_SUBPROGRAM);
+  956.       VdbeComment(
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:971: error: UNINITIALIZED_VALUE
+  The value read from c.f was never initialized.
+  969.     pCellData += 8;
+  970.     for(i=0; i<nCoord; i++, pCellData += 4){
+  971. >     RTREE_DECODE_COORD(eInt, pCellData, aCoord[i]);
+  972.     }
+  973.     if( pConstraint->op==RTREE_MATCH ){
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:971: error: UNINITIALIZED_VALUE
+  The value read from c.i was never initialized.
+  969.     pCellData += 8;
+  970.     for(i=0; i<nCoord; i++, pCellData += 4){
+  971. >     RTREE_DECODE_COORD(eInt, pCellData, aCoord[i]);
+  972.     }
+  973.     if( pConstraint->op==RTREE_MATCH ){
+
+Pods/WCDBOptimizedSQLCipher/src/analyze.c:963: error: DEAD_STORE
+  The value written to &jZeroRows (type int) is never used.
+  961.     Vdbe *v;                     /* The virtual machine being built up */
+  962.     int i;                       /* Loop counter */
+  963. >   int jZeroRows = -1;          /* Jump from here if number of rows is zero */
+  964.     int iDb;                     /* Index of database containing pTab */
+  965.     u8 needTableCnt = 1;         /* True to count the table */
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:989: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `scheduler` is not checked for null, there could be a null pointer dereference: pointer `timeoutDisposable` last assigned on line 984 could be null and is dereferenced by call to `addDisposable:` at line 989, column 3.
+  987.   		}];
+  988.   
+  989. > 		[disposable addDisposable:timeoutDisposable];
+  990.   
+  991.   		RACDisposable *subscriptionDisposable = [self subscribeNext:^(id x) {
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1016: error: UNINITIALIZED_VALUE
+  The value read from c.f was never initialized.
+  1014.       case RTREE_LT:
+  1015.       case RTREE_EQ:
+  1016. >       RTREE_DECODE_COORD(eInt, pCellData, val);
+  1017.         /* val now holds the lower bound of the coordinate pair */
+  1018.         if( p->u.rValue>=val ) return;
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1024: error: UNINITIALIZED_VALUE
+  The value read from c.f was never initialized.
+  1022.       default: /* RTREE_GT or RTREE_GE,  or fallthrough of RTREE_EQ */
+  1023.         pCellData += 4;
+  1024. >       RTREE_DECODE_COORD(eInt, pCellData, val);
+  1025.         /* val now holds the upper bound of the coordinate pair */
+  1026.         if( p->u.rValue<=val ) return;
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1016: error: UNINITIALIZED_VALUE
+  The value read from c.i was never initialized.
+  1014.       case RTREE_LT:
+  1015.       case RTREE_EQ:
+  1016. >       RTREE_DECODE_COORD(eInt, pCellData, val);
+  1017.         /* val now holds the lower bound of the coordinate pair */
+  1018.         if( p->u.rValue>=val ) return;
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1024: error: UNINITIALIZED_VALUE
+  The value read from c.i was never initialized.
+  1022.       default: /* RTREE_GT or RTREE_GE,  or fallthrough of RTREE_EQ */
+  1023.         pCellData += 4;
+  1024. >       RTREE_DECODE_COORD(eInt, pCellData, val);
+  1025.         /* val now holds the upper bound of the coordinate pair */
+  1026.         if( p->u.rValue<=val ) return;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:1031: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `self` is not checked for null, there could be a null pointer dereference: pointer `subscriptionDisposable` last assigned on line 1029 could be null and is dereferenced by call to `addDisposable:` at line 1031, column 4.
+  1029.   			RACDisposable *subscriptionDisposable = [self subscribe:subscriber];
+  1030.   
+  1031. > 			[disposable addDisposable:subscriptionDisposable];
+  1032.   		}];
+  1033.   
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1052: error: UNINITIALIZED_VALUE
+  The value read from c.f was never initialized.
+  1050.         || p->op==RTREE_GT || p->op==RTREE_EQ );
+  1051.     pCellData += 8 + p->iCoord*4;
+  1052. >   RTREE_DECODE_COORD(eInt, pCellData, xN);
+  1053.     switch( p->op ){
+  1054.       case RTREE_LE: if( xN <= p->u.rValue ) return;  break;
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1052: error: UNINITIALIZED_VALUE
+  The value read from c.i was never initialized.
+  1050.         || p->op==RTREE_GT || p->op==RTREE_EQ );
+  1051.     pCellData += 8 + p->iCoord*4;
+  1052. >   RTREE_DECODE_COORD(eInt, pCellData, xN);
+  1053.     switch( p->op ){
+  1054.       case RTREE_LE: if( xN <= p->u.rValue ) return;  break;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACSignal+Operations.m:1046: warning: PARAMETER_NOT_NULL_CHECKED
+  Parameter `block` is not checked for null, there could be a null pointer dereference: pointer `block` could be null and is dereferenced at line 1046, column 5.
+  1044.   			int32_t queued = OSAtomicIncrement32(&queueLength);
+  1045.   			if (NSThread.isMainThread && queued == 1) {
+  1046. > 				block();
+  1047.   				OSAtomicDecrement32(&queueLength);
+  1048.   			} else {
+
+Pods/WCDBOptimizedSQLCipher/src/wherecode.c:1241: error: DEAD_STORE
+  The value written to &j (type int) is never used.
+  1239.       pStart = pEnd = 0;
+  1240.       if( pLoop->wsFlags & WHERE_BTM_LIMIT ) pStart = pLoop->aLTerm[j++];
+  1241. >     if( pLoop->wsFlags & WHERE_TOP_LIMIT ) pEnd = pLoop->aLTerm[j++];
+  1242.       assert( pStart!=0 || pEnd!=0 );
+  1243.       if( bRev ){
+
+Pods/WCDBOptimizedSQLCipher/src/wherecode.c:1433: error: DEAD_STORE
+  The value written to &j (type int) is never used.
+  1431.       }
+  1432.       if( pLoop->wsFlags & WHERE_TOP_LIMIT ){
+  1433. >       pRangeEnd = pLoop->aLTerm[j++];
+  1434.         nExtraReg = MAX(nExtraReg, pLoop->u.btree.nTop);
+  1435.   #ifndef SQLITE_LIKE_DOESNT_MATCH_BLOBS
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3_expr.c:1084: error: MEMORY_LEAK
+  `p` is not reachable after line 1084, column 46.
+  1082.     Fts3Expr *p;
+  1083.     assert( pDel==0 || pDel->pParent==0 );
+  1084. >   for(p=pDel; p && (p->pLeft||p->pRight); p=(p->pLeft ? p->pLeft : p->pRight)){
+  1085.       assert( p->pParent==0 || p==p->pParent->pRight || p==p->pParent->pLeft );
+  1086.     }
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:1264: error: NULL_DEREFERENCE
+  pointer `pPk` last assigned on line 1263 could be null and is dereferenced at line 1264, column 16.
+  1262.     }else{
+  1263.       pPk = sqlite3PrimaryKeyIndex(pTab);
+  1264. >     nPkField = pPk->nKeyCol;
+  1265.     }
+  1266.   
+
+Pods/WCDBOptimizedSQLCipher/src/vdbesort.c:1331: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `sqlite3VdbeAllocUnpackedRecord()` at line 1331, column 24.
+  1329.     if( pTask->pUnpacked==0 ){
+  1330.       char *pFree;
+  1331. >     pTask->pUnpacked = sqlite3VdbeAllocUnpackedRecord(
+  1332.           pTask->pSorter->pKeyInfo, 0, 0, &pFree
+  1333.       );
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:1406: error: NULL_DEREFERENCE
+  pointer `pNode` last assigned on line 1404 could be null and is dereferenced by call to `nodeGetRowid()` at line 1406, column 15.
+  1404.     RtreeNode *pNode = rtreeNodeOfFirstSearchPoint(pCsr, &rc);
+  1405.     if( rc==SQLITE_OK && p ){
+  1406. >     *pRowid = nodeGetRowid(RTREE_OF_CURSOR(pCsr), pNode, p->iCell);
+  1407.     }
+  1408.     return rc;
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3.c:1641: error: DEAD_STORE
+  The value written to &iIdx (type int) is never used.
+  1639.     if( iDocidLe>=0 ){
+  1640.       pInfo->idxNum |= FTS3_HAVE_DOCID_LE;
+  1641. >     pInfo->aConstraintUsage[iDocidLe].argvIndex = iIdx++;
+  1642.     } 
+  1643.   
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:1687: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 1677 could be null and is dereferenced by call to `sqlite3VdbeAddOp2()` at line 1687, column 5.
+  1685.         VdbeCoverage(v);
+  1686.       }
+  1687. >     sqlite3VdbeAddOp2(v, OP_IdxInsert, iIdxCur+i, aRegIdx[i]);
+  1688.       pik_flags = 0;
+  1689.       if( useSeekResult ) pik_flags = OPFLAG_USESEEKRESULT;
+
+Pods/WCDBOptimizedSQLCipher/src/insert.c:1684: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 1677 could be null and is dereferenced by call to `sqlite3VdbeCurrentAddr()` at line 1684, column 51.
+  1682.       bAffinityDone = 1;
+  1683.       if( pIdx->pPartIdxWhere ){
+  1684. >       sqlite3VdbeAddOp2(v, OP_IsNull, aRegIdx[i], sqlite3VdbeCurrentAddr(v)+2);
+  1685.         VdbeCoverage(v);
+  1686.       }
+
+Pods/WCDBOptimizedSQLCipher/src/vdbesort.c:1739: error: NULL_DEREFERENCE
+  pointer `pTask` last assigned on line 1709 could be null and is dereferenced at line 1739, column 18.
+  1737.       }else{
+  1738.         /* Launch a background thread for this operation */
+  1739. >       u8 *aMem = pTask->list.aMemory;
+  1740.         void *pCtx = (void*)pTask;
+  1741.   
+
+Pods/WCDBOptimizedSQLCipher/src/select.c:1852: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 1849 could be null and is dereferenced by call to `sqlite3VdbeAddOp2()` at line 1852, column 7.
+  1850.       assert( v!=0 );
+  1851.       if( sqlite3ExprIsInteger(p->pLimit, &n) ){
+  1852. >       sqlite3VdbeAddOp2(v, OP_Integer, n, iLimit);
+  1853.         VdbeComment((v, "LIMIT counter"));
+  1854.         if( n==0 ){
+
+Pods/WCDBOptimizedSQLCipher/src/select.c:1994: error: DEAD_STORE
+  The value written to &eDest (type int) is never used.
+  1992.     int iQueue;                   /* The Queue table */
+  1993.     int iDistinct = 0;            /* To ensure unique results if UNION */
+  1994. >   int eDest = SRT_Fifo;         /* How to write to Queue */
+  1995.     SelectDest destQueue;         /* SelectDest targetting the Queue table */
+  1996.     int i;                        /* Loop counter */
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:2328: error: UNINITIALIZED_VALUE
+  The value read from zDbHeader[_] was never initialized.
+  2326.         ** determined by the one-byte unsigned integer found at an offset of 20
+  2327.         ** into the database file header. */
+  2328. >       nReserve = zDbHeader[20];
+  2329.         pBt->btsFlags |= BTS_PAGESIZE_FIXED;
+  2330.   #ifndef SQLITE_OMIT_AUTOVACUUM
+
+Pods/WCDBOptimizedSQLCipher/src/select.c:2286: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 2228 could be null and is dereferenced by call to `sqlite3VdbeAddOp1()` at line 2286, column 16.
+  2284.         p->iOffset = pPrior->iOffset;
+  2285.         if( p->iLimit ){
+  2286. >         addr = sqlite3VdbeAddOp1(v, OP_IfNot, p->iLimit); VdbeCoverage(v);
+  2287.           VdbeComment((v, "Jump ahead if LIMIT reached"));
+  2288.           if( p->iOffset ){
+
+Pods/WCDBOptimizedSQLCipher/src/select.c:2235: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 2228 could be null and is dereferenced by call to `sqlite3VdbeAddOp2()` at line 2235, column 5.
+  2233.     if( dest.eDest==SRT_EphemTab ){
+  2234.       assert( p->pEList );
+  2235. >     sqlite3VdbeAddOp2(v, OP_OpenEphemeral, dest.iSDParm, p->pEList->nExpr);
+  2236.       dest.eDest = SRT_Table;
+  2237.     }
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:2219: error: MEMORY_LEAK
+  `pChild->pParent` is not reachable after line 2219, column 7.
+  2217.         nodeRelease(pRtree, pChild->pParent);
+  2218.         nodeReference(pNode);
+  2219. >       pChild->pParent = pNode;
+  2220.       }
+  2221.     }
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:2219: error: MEMORY_LEAK
+  `pChild` is not reachable after line 2219, column 7.
+  2217.         nodeRelease(pRtree, pChild->pParent);
+  2218.         nodeReference(pNode);
+  2219. >       pChild->pParent = pNode;
+  2220.       }
+  2221.     }
+
+Pods/WCDBOptimizedSQLCipher/src/build.c:2315: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 2312 could be null and is dereferenced by call to `sqlite3VdbeAddOp3()` at line 2315, column 3.
+  2313.     int r1 = sqlite3GetTempReg(pParse);
+  2314.     assert( iTable>1 );
+  2315. >   sqlite3VdbeAddOp3(v, OP_Destroy, iTable, r1, iDb);
+  2316.     sqlite3MayAbort(pParse);
+  2317.   #ifndef SQLITE_OMIT_AUTOVACUUM
+
+Pods/WCDBOptimizedSQLCipher/src/main.c:2663: error: DEAD_STORE
+  The value written to &iOut (type int) is never used.
+  2661.       if( eState==1 ) zFile[iOut++] = '\0';
+  2662.       zFile[iOut++] = '\0';
+  2663. >     zFile[iOut++] = '\0';
+  2664.   
+  2665.       /* Check if there were any options specified that should be interpreted 
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:2628: error: MEMORY_LEAK
+  `pChild->pParent` is not reachable after line 2628, column 7.
+  2626.         nodeRelease(pRtree, pChild->pParent);
+  2627.         nodeReference(pNode);
+  2628. >       pChild->pParent = pNode;
+  2629.       }
+  2630.     }
+
+Pods/WCDBOptimizedSQLCipher/ext/rtree/rtree.c:2628: error: MEMORY_LEAK
+  `pChild` is not reachable after line 2628, column 7.
+  2626.         nodeRelease(pRtree, pChild->pParent);
+  2627.         nodeReference(pNode);
+  2628. >       pChild->pParent = pNode;
+  2629.       }
+  2630.     }
+
+Pods/WCDBOptimizedSQLCipher/src/vdbesort.c:2737: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `sqlite3VdbeAllocUnpackedRecord()` at line 2737, column 31.
+  2735.     if( r2==0 ){
+  2736.       char *p;
+  2737. >     r2 = pSorter->pUnpacked = sqlite3VdbeAllocUnpackedRecord(pKeyInfo,0,0,&p);
+  2738.       assert( pSorter->pUnpacked==(UnpackedRecord*)p );
+  2739.       if( r2==0 ) return SQLITE_NOMEM_BKPT;
+
+Pods/WCDBOptimizedSQLCipher/src/os_unix.c:2810: error: DEAD_STORE
+  The value written to &pInode (type unixInodeInfo*) is never used.
+  2808.     int rc = SQLITE_OK;
+  2809.     unixFile *pFile = (unixFile*)id;
+  2810. >   unixInodeInfo *pInode = pFile->pInode;
+  2811.     afpLockingContext *context = (afpLockingContext *) pFile->lockingContext;
+  2812.     
+
+Pods/WCDBOptimizedSQLCipher/src/pager.c:3064: error: MEMORY_LEAK
+  `pList` is not reachable after line 3064, column 5.
+  3062.     while( pList && rc==SQLITE_OK ){
+  3063.       PgHdr *pNext = pList->pDirty;
+  3064. >     rc = pagerUndoCallback((void *)pPager, pList->pgno);
+  3065.       pList = pNext;
+  3066.     }
+
+Pods/WCDBOptimizedSQLCipher/src/pager.c:3107: error: MEMORY_LEAK
+  `*ppNext` is not reachable after line 3107, column 19.
+  3105.       PgHdr **ppNext = &pList;
+  3106.       nList = 0;
+  3107. >     for(p=pList; (*ppNext = p)!=0; p=p->pDirty){
+  3108.         if( p->pgno<=nTruncate ){
+  3109.           ppNext = &p->pDirty;
+
+Pods/WCDBOptimizedSQLCipher/src/main.c:3141: error: NULL_DEREFERENCE
+  pointer `null` could be null and is dereferenced by call to `sqlite3ValueNew()` at line 3141, column 10.
+  3139.   #endif
+  3140.     if( zFilename==0 ) zFilename = "\000\000";
+  3141. >   pVal = sqlite3ValueNew(0);
+  3142.     sqlite3ValueSetStr(pVal, -1, zFilename, SQLITE_UTF16NATIVE, SQLITE_STATIC);
+  3143.     zFilename8 = sqlite3ValueText(pVal, SQLITE_UTF8);
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3.c:3189: error: DEAD_STORE
+  The value written to &iIdx (type int) is never used.
+  3187.     if( idxNum & FTS3_HAVE_LANGID ) pLangid = apVal[iIdx++];
+  3188.     if( idxNum & FTS3_HAVE_DOCID_GE ) pDocidGe = apVal[iIdx++];
+  3189. >   if( idxNum & FTS3_HAVE_DOCID_LE ) pDocidLe = apVal[iIdx++];
+  3190.     assert( iIdx==nVal );
+  3191.   
+
+Pods/WCDBOptimizedSQLCipher/src/os_unix.c:3566: error: DEAD_STORE
+  The value written to &fd (type int) is never used.
+  3564.   static int openDirectory(const char *zFilename, int *pFd){
+  3565.     int ii;
+  3566. >   int fd = -1;
+  3567.     char zDirname[MAX_PATHNAME+1];
+  3568.   
+
+Pods/WCDBOptimizedSQLCipher/src/build.c:4136: error: NULL_DEREFERENCE
+  pointer `v` last assigned on line 4131 could be null and is dereferenced by call to `sqlite3VdbeAddOp4()` at line 4136, column 3.
+  4134.       sqlite3MayAbort(pParse);
+  4135.     }
+  4136. >   sqlite3VdbeAddOp4(v, OP_Halt, errCode, onError, 0, p4, p4type);
+  4137.     sqlite3VdbeChangeP5(v, p5Errmsg);
+  4138.   }
+
+Pods/WCDBOptimizedSQLCipher/src/pager.c:4539: error: MEMORY_LEAK
+  `pList` is not reachable after line 4539, column 11.
+  4537.       while( rc==SQLITE_OK && pList ){
+  4538.         PgHdr *pNext = pList->pDirty;
+  4539. >       if( pList->nRef==0 ){
+  4540.           rc = pagerStress((void*)pPager, pList);
+  4541.         }
+
+Pods/WCDBOptimizedSQLCipher/src/select.c:5257: error: UNINITIALIZED_VALUE
+  The value read from sAggInfo.nColumn was never initialized.
+  5255.         sqlite3ExprAnalyzeAggregates(&sNC, pHaving);
+  5256.       }
+  5257. >     sAggInfo.nAccumulator = sAggInfo.nColumn;
+  5258.       for(i=0; i<sAggInfo.nFunc; i++){
+  5259.         assert( !ExprHasProperty(sAggInfo.aFunc[i].pExpr, EP_xIsSelect) );
+
+Pods/WCDBOptimizedSQLCipher/src/select.c:5287: error: UNINITIALIZED_VALUE
+  The value read from sAggInfo.nColumn was never initialized.
+  5285.         */
+  5286.         sAggInfo.sortingIdx = pParse->nTab++;
+  5287. >       pKeyInfo = keyInfoFromExprList(pParse, pGroupBy, 0, sAggInfo.nColumn);
+  5288.         addrSortingIdx = sqlite3VdbeAddOp4(v, OP_SorterOpen, 
+  5289.             sAggInfo.sortingIdx, sAggInfo.nSortingColumn, 
+
+Pods/WCDBOptimizedSQLCipher/ext/fts3/fts3_write.c:4839: error: DEAD_STORE
+  The value written to &rc (type int) is never used.
+  4837.       ** set nSeg to -1.
+  4838.       */
+  4839. >     rc = fts3SqlStmt(p, SQL_FIND_MERGE_LEVEL, &pFindLevel, 0);
+  4840.       sqlite3_bind_int(pFindLevel, 1, MAX(2, nMin));
+  4841.       if( sqlite3_step(pFindLevel)==SQLITE_ROW ){
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:5267: error: UNINITIALIZED_VALUE
+  The value read from c was never initialized.
+  5265.         assert( pCur->aiIdx[pCur->iPage]<pCur->apPage[pCur->iPage]->nCell );
+  5266.         pCur->aiIdx[pCur->iPage] = (u16)idx;
+  5267. >       *pRes = c;
+  5268.         rc = SQLITE_OK;
+  5269.         goto moveto_finish;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7453: error: UNINITIALIZED_VALUE
+  The value read from aPgFlags[_] was never initialized.
+  7451.           sqlite3PagerRekey(apNew[iBest]->pDbPage, pBt->nPage+iBest+1, 0);
+  7452.         }
+  7453. >       sqlite3PagerRekey(apNew[i]->pDbPage, pgno, aPgFlags[iBest]);
+  7454.         apNew[i]->pgno = pgno;
+  7455.       }
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7447: error: UNINITIALIZED_VALUE
+  The value read from aPgOrder[_] was never initialized.
+  7445.         if( aPgOrder[j]<aPgOrder[iBest] ) iBest = j;
+  7446.       }
+  7447. >     pgno = aPgOrder[iBest];
+  7448.       aPgOrder[iBest] = 0xffffffff;
+  7449.       if( iBest!=i ){
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7499: error: UNINITIALIZED_VALUE
+  The value read from apNew[_] was never initialized.
+  7497.     */
+  7498.     if( ISAUTOVACUUM ){
+  7499. >     MemPage *pNew = apNew[0];
+  7500.       u8 *aOld = pNew->aData;
+  7501.       int cntOldNext = pNew->nCell + pNew->nOverflow;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7509: error: UNINITIALIZED_VALUE
+  The value read from apNew[_] was never initialized.
+  7507.         u8 *pCell = b.apCell[i];
+  7508.         if( i==cntOldNext ){
+  7509. >         MemPage *pOld = (++iOld)<nNew ? apNew[iOld] : apOld[iOld];
+  7510.           cntOldNext += pOld->nCell + pOld->nOverflow + !leafData;
+  7511.           aOld = pOld->aData;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7514: error: UNINITIALIZED_VALUE
+  The value read from apNew[_] was never initialized.
+  7512.         }
+  7513.         if( i==cntNew[iNew] ){
+  7514. >         pNew = apNew[++iNew];
+  7515.           if( !leafData ) continue;
+  7516.         }
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7544: error: UNINITIALIZED_VALUE
+  The value read from apNew[_] was never initialized.
+  7542.       u8 *pTemp;
+  7543.       int sz;
+  7544. >     MemPage *pNew = apNew[i];
+  7545.       j = cntNew[i];
+  7546.   
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7163: error: UNINITIALIZED_VALUE
+  The value read from apOld[_] was never initialized.
+  7161.     **       leafData:  1 if pPage holds key+data and pParent holds only keys.
+  7162.     */
+  7163. >   b.pRef = apOld[0];
+  7164.     leafCorrection = b.pRef->leaf*4;
+  7165.     leafData = b.pRef->intKeyLeaf;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7167: error: UNINITIALIZED_VALUE
+  The value read from apOld[_] was never initialized.
+  7165.     leafData = b.pRef->intKeyLeaf;
+  7166.     for(i=0; i<nOld; i++){
+  7167. >     MemPage *pOld = apOld[i];
+  7168.       int limit = pOld->nCell;
+  7169.       u8 *aData = pOld->aData;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7274: error: UNINITIALIZED_VALUE
+  The value read from apOld[_] was never initialized.
+  7272.     usableSpace = pBt->usableSize - 12 + leafCorrection;
+  7273.     for(i=0; i<nOld; i++){
+  7274. >     MemPage *p = apOld[i];
+  7275.       szNew[i] = usableSpace - p->nFree;
+  7276.       if( szNew[i]<0 ){ rc = SQLITE_CORRUPT_BKPT; goto balance_cleanup; }
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7389: error: UNINITIALIZED_VALUE
+  The value read from apOld[_] was never initialized.
+  7387.       MemPage *pNew;
+  7388.       if( i<nOld ){
+  7389. >       pNew = apNew[i] = apOld[i];
+  7390.         apOld[i] = 0;
+  7391.         rc = sqlite3PagerWrite(pNew->pDbPage);
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7509: error: UNINITIALIZED_VALUE
+  The value read from apOld[_] was never initialized.
+  7507.         u8 *pCell = b.apCell[i];
+  7508.         if( i==cntOldNext ){
+  7509. >         MemPage *pOld = (++iOld)<nNew ? apNew[iOld] : apOld[iOld];
+  7510.           cntOldNext += pOld->nCell + pOld->nOverflow + !leafData;
+  7511.           aOld = pOld->aData;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7296: error: UNINITIALIZED_VALUE
+  The value read from cntNew[_] was never initialized.
+  7294.         if( !leafData ){
+  7295.           if( cntNew[i]<b.nCell ){
+  7296. >           sz = 2 + cachedCellSize(&b, cntNew[i]);
+  7297.           }else{
+  7298.             sz = 0;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7305: error: UNINITIALIZED_VALUE
+  The value read from cntNew[_] was never initialized.
+  7303.       }
+  7304.       while( cntNew[i]<b.nCell ){
+  7305. >       sz = 2 + cachedCellSize(&b, cntNew[i]);
+  7306.         if( szNew[i]+sz>usableSpace ) break;
+  7307.         szNew[i] += sz;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7320: error: UNINITIALIZED_VALUE
+  The value read from cntNew[_] was never initialized.
+  7318.       if( cntNew[i]>=b.nCell ){
+  7319.         k = i+1;
+  7320. >     }else if( cntNew[i] <= (i>0 ? cntNew[i-1] : 0) ){
+  7321.         rc = SQLITE_CORRUPT_BKPT;
+  7322.         goto balance_cleanup;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7362: error: UNINITIALIZED_VALUE
+  The value read from cntNew[_] was never initialized.
+  7360.       szNew[i] = szRight;
+  7361.       szNew[i-1] = szLeft;
+  7362. >     if( cntNew[i-1] <= (i>1 ? cntNew[i-2] : 0) ){
+  7363.         rc = SQLITE_CORRUPT_BKPT;
+  7364.         goto balance_cleanup;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7545: error: UNINITIALIZED_VALUE
+  The value read from cntNew[_] was never initialized.
+  7543.       int sz;
+  7544.       MemPage *pNew = apNew[i];
+  7545. >     j = cntNew[i];
+  7546.   
+  7547.       assert( j<nMaxCells );
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7635: error: UNINITIALIZED_VALUE
+  The value read from cntNew[_] was never initialized.
+  7633.         if( iPg==0 ){
+  7634.           iNew = iOld = 0;
+  7635. >         nNewCell = cntNew[0];
+  7636.         }else{
+  7637.           iOld = iPg<nOld ? (cntOld[iPg-1] + !leafData) : b.nCell;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7280: error: UNINITIALIZED_VALUE
+  The value read from cntOld[_] was never initialized.
+  7278.         szNew[i] += 2 + p->xCellSize(p, p->apOvfl[j]);
+  7279.       }
+  7280. >     cntNew[i] = cntOld[i];
+  7281.     }
+  7282.     k = nOld;
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7223: error: UNINITIALIZED_VALUE
+  The value read from szNew[_] was never initialized.
+  7221.       cntOld[i] = b.nCell;
+  7222.       if( i<nOld-1 && !leafData){
+  7223. >       u16 sz = (u16)szNew[i];
+  7224.         u8 *pTemp;
+  7225.         assert( b.nCell<nMaxCells );
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7338: error: UNINITIALIZED_VALUE
+  The value read from szNew[_] was never initialized.
+  7336.     */
+  7337.     for(i=k-1; i>0; i--){
+  7338. >     int szRight = szNew[i];  /* Size of sibling on the right */
+  7339.       int szLeft = szNew[i-1]; /* Size of sibling on the left */
+  7340.       int r;              /* Index of right-most cell in left sibling */
+
+Pods/WCDBOptimizedSQLCipher/src/btree.c:7339: error: UNINITIALIZED_VALUE
+  The value read from szNew[_] was never initialized.
+  7337.     for(i=k-1; i>0; i--){
+  7338.       int szRight = szNew[i];  /* Size of sibling on the right */
+  7339. >     int szLeft = szNew[i-1]; /* Size of sibling on the left */
+  7340.       int r;              /* Index of right-most cell in left sibling */
+  7341.       int d;              /* Index of first cell to the left of right sibling */
+
+Pods/WCDB/objc/WCDB/interface/declare/WCTDatabase.mm:29: warning: REGISTERED_OBSERVER_BEING_DEALLOCATED
+  Object self is registered in a notification center but not being removed before deallocation at line 29, column 1. Consider removing the object from the notification center before its deallocation.
+  27.   #endif // TARGET_OS_IPHONE && !TARGET_OS_WATCH
+  28.   
+  29. > @implementation WCTDatabase
+  30.   
+  31.   #if TARGET_OS_IPHONE && !TARGET_OS_WATCH
+
+Pods/ReactiveCocoa/ReactiveCocoa/UIActionSheet+RACSignalSupport.h:18: warning: STRONG_DELEGATE_WARNING
+  Property or ivar `rac_delegateProxy` declared strong at line 18, column 1. In general delegates should be declared weak or assign.
+  16.   /// A delegate proxy which will be set as the receiver's delegate when any of the
+  17.   /// methods in this category are used.
+  18. > @property (nonatomic, strong, readonly) RACDelegateProxy *rac_delegateProxy;
+  19.   
+  20.   /// Creates a signal for button clicks on the receiver.
+
+Pods/ReactiveCocoa/ReactiveCocoa/UIAlertView+RACSignalSupport.h:18: warning: STRONG_DELEGATE_WARNING
+  Property or ivar `rac_delegateProxy` declared strong at line 18, column 1. In general delegates should be declared weak or assign.
+  16.   /// A delegate proxy which will be set as the receiver's delegate when any of the
+  17.   /// methods in this category are used.
+  18. > @property (nonatomic, strong, readonly) RACDelegateProxy *rac_delegateProxy;
+  19.   
+  20.   /// Creates a signal for button clicks on the receiver.
+
+Pods/ReactiveCocoa/ReactiveCocoa/UIImagePickerController+RACSignalSupport.h:18: warning: STRONG_DELEGATE_WARNING
+  Property or ivar `rac_delegateProxy` declared strong at line 18, column 1. In general delegates should be declared weak or assign.
+  16.   /// A delegate proxy which will be set as the receiver's delegate when any of the
+  17.   /// methods in this category are used.
+  18. > @property (nonatomic, strong, readonly) RACDelegateProxy *rac_delegateProxy;
+  19.   
+  20.   /// Creates a signal for every new selected image.
+
+Pods/ReactiveCocoa/ReactiveCocoa/UITextView+RACSignalSupport.h:18: warning: STRONG_DELEGATE_WARNING
+  Property or ivar `rac_delegateProxy` declared strong at line 18, column 1. In general delegates should be declared weak or assign.
+  16.   /// A delegate proxy which will be set as the receiver's delegate when any of the
+  17.   /// methods in this category are used.
+  18. > @property (nonatomic, strong, readonly) RACDelegateProxy *rac_delegateProxy;
+  19.   
+  20.   /// Creates a signal for the text of the receiver.
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACKVOTrampoline.m:22: warning: ASSIGN_POINTER_WARNING
+  Property `unsafeTarget` is a pointer type marked with the `assign` attribute at line 22, column 1. Use a different attribute like `strong` or `weak`.
+  20.   // receiver.
+  21.   @property (nonatomic, readonly, copy) RACKVOBlock block;
+  22. > @property (nonatomic, readonly, unsafe_unretained) NSObject *unsafeTarget;
+  23.   @property (nonatomic, readonly, weak) NSObject *weakTarget;
+  24.   @property (nonatomic, readonly, weak) NSObject *observer;
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACPassthroughSubscriber.m:39: warning: ASSIGN_POINTER_WARNING
+  Property `signal` is a pointer type marked with the `assign` attribute at line 39, column 1. Use a different attribute like `strong` or `weak`.
+  37.   // a zeroing weak reference would incur an unnecessary performance penalty in
+  38.   // normal usage.
+  39. > @property (nonatomic, unsafe_unretained, readonly) RACSignal *signal;
+  40.   
+  41.   // A disposable representing the subscription. When disposed, no further events
+
+Pods/ReactiveCocoa/ReactiveCocoa/RACDelegateProxy.h:19: warning: ASSIGN_POINTER_WARNING
+  Property `rac_proxiedDelegate` is a pointer type marked with the `assign` attribute at line 19, column 1. Use a different attribute like `strong` or `weak`.
+  17.   // The delegate to which messages should be forwarded if not handled by
+  18.   // any -signalForSelector: applications.
+  19. > @property (nonatomic, unsafe_unretained) id rac_proxiedDelegate;
+  20.   
+  21.   // Creates a delegate proxy capable of responding to selectors from `protocol`.
+
+Summary of the reports
+
+                    UNINITIALIZED_VALUE: 51
+             PARAMETER_NOT_NULL_CHECKED: 42
+                       NULL_DEREFERENCE: 37
+                             DEAD_STORE: 34
+                  IVAR_NOT_NULL_CHECKED: 20
+                            MEMORY_LEAK: 16
+                     USE_AFTER_LIFETIME: 7
+     STATIC_INITIALIZATION_ORDER_FIASCO: 6
+                STRONG_DELEGATE_WARNING: 4
+                 ASSIGN_POINTER_WARNING: 3
+                           RETAIN_CYCLE: 1
+  REGISTERED_OBSERVER_BEING_DEALLOCATED: 1

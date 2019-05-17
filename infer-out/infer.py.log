@@ -1,0 +1,19 @@
+[INFO] output of locale.getdefaultlocale(): ('zh_CN', 'UTF-8')
+[INFO] encoding we chose in the end: UTF-8
+[INFO] Running command /usr/local/Cellar/infer/0.15.0/lib/infer/infer/bin/../lib/python/infer.py -j 4 --project-root /Users/xzm/Desktop/PodTest --out /Users/xzm/Desktop/PodTest/infer-out -- xcodebuild -workspace PodTest.xcworkspace -scheme PodTest -configuration Debug -sdk iphonesimulator
+[INFO] Path to infer script /usr/local/Cellar/infer/0.15.0/lib/infer/infer/bin/../lib/python/infer.py (/usr/local/Cellar/infer/0.15.0/lib/infer/infer/lib/python/infer.py)
+[INFO] Platform: Darwin-18.0.0-x86_64-i386-64bit
+[INFO] PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:pwd/infer/infer/bin:pwd/infer/infer/bin:pwd/infer/infer/bin:/Users/xzm/infer/bin
+[INFO] SHELL=/bin/bash
+[INFO] PWD=/Users/xzm/Desktop/PodTest
+[INFO] Xcode version:
+Xcode 10.1
+Build version 10B61
+
+[INFO] clang version:
+Apple LLVM version 10.0.0 (clang-1000.11.45.5)
+Target: x86_64-apple-darwin18.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+[INFO] Capture phase was successful

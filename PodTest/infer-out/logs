@@ -1,0 +1,20 @@
+[21662][environment] CWD = /Users/xzm/Desktop/PodTest/PodTest
+[21662][environment] No .inferconfig file found
+[21662][environment] Project root = /Users/xzm/Desktop/PodTest/PodTest
+[21662][environment] INFER_ARGS =   command line arguments:   infer -- clang -c --keep-going
+[21662][environment]                                          ViewController.mAnalyzer: checkers
+[21662][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[21662][environment] Infer log identifier is 
+Infer version v0.15.0
+[21662][environment] Copyright 2009 - present Facebook. All Rights Reserved.
+[21662][environment] 
+[21662][   progress] Capturing in make/cc mode...
+[21662][   user err] Failed to execute compilation command:
+'/usr/local/Cellar/infer/0.15.0/lib/infer/infer/bin/../../facebook-clang-plugins/clang/install/bin/clang' 
+  -c --keep-going ViewController.m
+
+Error message:
+clang: error: unsupported option '--keep-going'
+
+*** Infer needs a working compilation command to run.
+[21662][   user err] 

@@ -1,0 +1,63 @@
+PODS:
+  - CTMediator (25)
+  - Masonry (1.1.0)
+  - PaperManagement_Category (0.1.0):
+    - CTMediator
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - SQLiteRepairKit (1.2.1):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDB (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
+  - ZMSafe (0.1.0)
+
+DEPENDENCIES:
+  - Masonry
+  - PaperManagement_Category (from `http://192.168.3.200/iOS_Pods/PaperManagement_Category.git`)
+  - ReactiveCocoa (~> 2.5)
+  - WCDB
+  - ZMSafe (from `http://192.168.3.200/iOS_Pods/ZMSafe.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CTMediator
+    - Masonry
+    - ReactiveCocoa
+    - SQLiteRepairKit
+    - WCDB
+    - WCDBOptimizedSQLCipher
+
+EXTERNAL SOURCES:
+  PaperManagement_Category:
+    :git: http://192.168.3.200/iOS_Pods/PaperManagement_Category.git
+  ZMSafe:
+    :git: http://192.168.3.200/iOS_Pods/ZMSafe.git
+
+CHECKOUT OPTIONS:
+  PaperManagement_Category:
+    :commit: 76cd0d437eba8cbc33124695f9a4279eb22f007d
+    :git: http://192.168.3.200/iOS_Pods/PaperManagement_Category.git
+  ZMSafe:
+    :commit: 4473fe4f2329f82e0c1dedd2b3110561cf0adf2b
+    :git: http://192.168.3.200/iOS_Pods/ZMSafe.git
+
+SPEC CHECKSUMS:
+  CTMediator: 830c1fc204b3a6abf2a059510c7380f56343da0f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  PaperManagement_Category: 627bd4ef929944be6658a19c8dd9bca3f0a0c309
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
+  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
+  ZMSafe: 8e561ab9e9c44f605d4cdc90f192bda1764de8c2
+
+PODFILE CHECKSUM: b197fa88a1fc36caaf5a7ce9aca52ea0a31ff35e
+
+COCOAPODS: 1.5.3
